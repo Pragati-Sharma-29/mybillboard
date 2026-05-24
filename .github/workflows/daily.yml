@@ -1,0 +1,60 @@
+name: Daily refresh + deploy
+
+on:
+  schedule:
+    - cron: '17 6 * * *'  # daily at 06:17 UTC
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  scrape-build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install
+        run: npm ci || npm install
+
+      - name: Scrape jobs
+        run: npm run scrape
+        continue-on-error: true
+
+      - name: Commit refreshed jobs.json
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/jobs.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: refresh jobs.json"
+            git push
+          else
+            echo "No changes in jobs.json"
+          fi
+
+      - name: Build site
+        run: npm run build
+        env:
+          VITE_BASE: /mybillboard/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v4
