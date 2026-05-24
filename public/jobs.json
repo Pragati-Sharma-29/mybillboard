@@ -1,5 +1,2487 @@
 {
-  "generated_at": "2026-05-24T09:53:12.611Z",
-  "counts": {},
-  "jobs": []
+  "generated_at": "2026-05-24T10:04:22.823Z",
+  "counts": {
+    "USA": 217,
+    "EMEA": 20,
+    "India": 35,
+    "Singapore": 1,
+    "Dubai": 2
+  },
+  "jobs": [
+    {
+      "id": "uber-155422",
+      "company": "Uber",
+      "title": "Group Product Manager, Consumer",
+      "location": "New York, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/155422/",
+      "posted_at": "2026-05-22T19:24:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-158663",
+      "company": "Uber",
+      "title": "Lead Product Manager, Merchant Growth",
+      "location": "San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/158663/",
+      "posted_at": "2026-05-22T15:49:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159173",
+      "company": "Uber",
+      "title": "Lead Product Manager, Autonomous Vehicle Integrations",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159173/",
+      "posted_at": "2026-05-22T05:27:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10428540",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Vendor Experience",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10428540/sr-product-manager-vendor-experience",
+      "posted_at": "May 22, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10428306",
+      "company": "Amazon",
+      "title": "Sr Technical Product Manager - Service Improvements, Quality and Escalations",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10428306/sr-technical-product-manager-service-improvements-quality-and-escalations",
+      "posted_at": "May 22, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10427622",
+      "company": "Amazon",
+      "title": "Technical Product Manager, eero Business Systems",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10427622/technical-product-manager-eero-business-systems",
+      "posted_at": "May 22, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10428424",
+      "company": "Amazon",
+      "title": "AWS Sr Product Manager Tech, AWS Support",
+      "location": "Dallas, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10428424/aws-sr-product-manager-tech-aws-support",
+      "posted_at": "May 22, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159221",
+      "company": "Uber",
+      "title": "Senior Product Manager - Merchant  API Integrations",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159221/",
+      "posted_at": "2026-05-21T19:33:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-153401",
+      "company": "Uber",
+      "title": "Senior Product Manager - Autonomous Delivery",
+      "location": "New York, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/153401/",
+      "posted_at": "2026-05-21T18:39:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159535",
+      "company": "Uber",
+      "title": "Lead Product Manager, Uber Logistics",
+      "location": "New York, United States; Seattle, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159535/",
+      "posted_at": "2026-05-21T02:04:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159550",
+      "company": "Uber",
+      "title": "Senior Product Manager, Generative AI",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159550/",
+      "posted_at": "2026-05-21T02:04:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10427483",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Tech, EC2 Core Product Management, AWS Pricing",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10427483/sr-product-manager-tech-ec2-core-product-management-aws-pricing",
+      "posted_at": "May 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10426678",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Fauna",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10426678/principal-product-manager-tech-fauna",
+      "posted_at": "May 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10426176",
+      "company": "Amazon",
+      "title": "Principal AI Product Manager - Technical, Amazon Customer Service ",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10426176/principal-ai-product-manager-technical-amazon-customer-service",
+      "posted_at": "May 21, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10426178",
+      "company": "Amazon",
+      "title": "Principal AI Product Manager - Technical, Amazon Customer Service ",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10426178/principal-ai-product-manager-technical-amazon-customer-service",
+      "posted_at": "May 21, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10426717",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Shipment Technologies",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10426717/senior-product-manager-tech-shipment-technologies",
+      "posted_at": "May 21, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10426437",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical,  ",
+      "location": "Newark, New Jersey, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10426437/senior-product-manager-technical",
+      "posted_at": "May 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159533",
+      "company": "Uber",
+      "title": "Group Product Manager, Grocery & Retail Selection",
+      "location": "New York, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159533/",
+      "posted_at": "2026-05-20T18:03:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159545",
+      "company": "Uber",
+      "title": "Senior Product Manager — Grocery Fulfillment Optimization.",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159545/",
+      "posted_at": "2026-05-20T18:03:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425957",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech , International Grocery CX ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425957/principal-product-manager-tech-international-grocery-cx",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425617",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Tech, EC2 Core Product Management, AWS Pricing",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425617/sr-product-manager-tech-ec2-core-product-management-aws-pricing",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425819",
+      "company": "Amazon",
+      "title": "Product Manager - Technical, AI Voice, Ring & Blink Customer Service Technology",
+      "location": "Hawthorne, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425819/product-manager-technical-ai-voice-ring-blink-customer-service-technology",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425127",
+      "company": "Amazon",
+      "title": "Senior Technical Product Manager",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425127/senior-technical-product-manager",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425901",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Amazon Fuse and MBD",
+      "location": "Miami, Florida, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425901/sr-product-manager-amazon-fuse-and-mbd",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10425100",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech",
+      "location": "Istanbul, TUR",
+      "url": "https://www.amazon.jobs/en/jobs/10425100/senior-product-manager-tech",
+      "posted_at": "May 20, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10424994",
+      "company": "Amazon",
+      "title": "Senior Product Manager, After Market Services",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10424994/senior-product-manager-after-market-services",
+      "posted_at": "May 20, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10425942",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Technical, Efficiency & Automation, Support Products & Services",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10425942/sr-product-manager-technical-efficiency-automation-support-products-services",
+      "posted_at": "May 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10424897",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Subscribe & Save, Subscribe & Save",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10424897/senior-product-manager-subscribe-save-subscribe-save",
+      "posted_at": "May 20, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10424909",
+      "company": "Amazon",
+      "title": "Product Manager, International Emerging Stores Payments",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10424909/product-manager-international-emerging-stores-payments",
+      "posted_at": "May 20, 2026",
+      "region": "India"
+    },
+    {
+      "id": "uber-158193",
+      "company": "Uber",
+      "title": "HCM Security Product Lead",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/158193/",
+      "posted_at": "2026-05-19T20:41:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10424513",
+      "company": "Amazon",
+      "title": "Product Manager II - AMZ9675408",
+      "location": "Santa Monica, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10424513/product-manager-ii-amz9675408",
+      "posted_at": "May 19, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10423446",
+      "company": "Amazon",
+      "title": "Product Manager , 3P Marketplace",
+      "location": "Cape Town, Western Cape, ZAF",
+      "url": "https://www.amazon.jobs/en/jobs/10423446/product-manager-3p-marketplace",
+      "posted_at": "May 19, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10423954",
+      "company": "Amazon",
+      "title": "Senior Accessibility Product Manager, Devices & Services, Trust, Privacy & Accessibility",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10423954/senior-accessibility-product-manager-devices-services-trust-privacy-accessibility",
+      "posted_at": "May 19, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10423826",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, TimeHub",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10423826/senior-product-manager-tech-timehub",
+      "posted_at": "May 19, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10423893",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Prime Video",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10423893/senior-product-manager-tech-prime-video",
+      "posted_at": "May 19, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10423867",
+      "company": "Amazon",
+      "title": "Senior Product Manager Technical, Amazon Customer Service",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10423867/senior-product-manager-technical-amazon-customer-service",
+      "posted_at": "May 19, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10423878",
+      "company": "Amazon",
+      "title": "Sr. Product Manager-Tech, DSP-DA Lifecycle Solutions",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10423878/sr-product-manager-tech-dsp-da-lifecycle-solutions",
+      "posted_at": "May 19, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10423851",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, TimeHub",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10423851/principal-product-manager-tech-timehub",
+      "posted_at": "May 19, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10423845",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, TimeHub",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10423845/senior-product-manager-tech-timehub",
+      "posted_at": "May 19, 2026",
+      "region": "India"
+    },
+    {
+      "id": "uber-157322",
+      "company": "Uber",
+      "title": "Senior Product Manager, Grocery & Retail Consumer Experience",
+      "location": "New York, United States; San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/157322/",
+      "posted_at": "2026-05-18T22:18:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10422937",
+      "company": "Amazon",
+      "title": "Product Manager III - AMZ9778954",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10422937/product-manager-iii-amz9778954",
+      "posted_at": "May 18, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10422105",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, TimeHub",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10422105/senior-product-manager-tech-timehub",
+      "posted_at": "May 18, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10422442",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Amazon Now",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10422442/sr-product-manager-amazon-now",
+      "posted_at": "May 18, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10422440",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Amazon Now",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10422440/sr-product-manager-amazon-now",
+      "posted_at": "May 18, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10422425",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Technical, Embedded Software, Leo Connectivity",
+      "location": "Redmond, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10422425/sr-product-manager-technical-embedded-software-leo-connectivity",
+      "posted_at": "May 18, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10423166",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Technical, AWS Compliance & Security Assurance",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10423166/sr-product-manager-technical-aws-compliance-security-assurance",
+      "posted_at": "May 18, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420739",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, ES  , AWS Payments and Fraud Prevention",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10420739/senior-product-manager-technical-es-aws-payments-and-fraud-prevention",
+      "posted_at": "May 15, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420861",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Personalization and Monetization, Prime Video Personalization & Discovery ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10420861/principal-product-manager-tech-personalization-and-monetization-prime-video-personalization-discovery",
+      "posted_at": "May 15, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420776",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Fleet Telematics (Fixed-Term contract), Fleet Safety & Technology ",
+      "location": "Luxembourg, LUX",
+      "url": "https://www.amazon.jobs/en/jobs/10420776/sr-product-manager-fleet-telematics-fixed-term-contract-fleet-safety-technology",
+      "posted_at": "May 15, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10421553",
+      "company": "Amazon",
+      "title": "Product Manager, Business Prime",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10421553/product-manager-business-prime",
+      "posted_at": "May 15, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10421322",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Quick Sight - Structured Data Analytics",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10421322/senior-product-manager-technical-quick-sight-structured-data-analytics",
+      "posted_at": "May 15, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "uber-158309",
+      "company": "Uber",
+      "title": "Product Manager II, Help Center Platform",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/158309/",
+      "posted_at": "2026-05-14T20:54:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159439",
+      "company": "Uber",
+      "title": "Lead Product Manager, Seller Tech",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159439/",
+      "posted_at": "2026-05-14T17:49:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-154532",
+      "company": "Uber",
+      "title": "Sr. Product Manager - Consumer Fulfillment",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/154532/",
+      "posted_at": "2026-05-14T13:48:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420150",
+      "company": "Amazon",
+      "title": "Senior Product Manager, AWS Neurosymbolic AI",
+      "location": "Boston, Massachusetts, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10420150/senior-product-manager-aws-neurosymbolic-ai",
+      "posted_at": "May 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420390",
+      "company": "Amazon",
+      "title": "Senior Product Manager,Content & Catalogue Management, FTV Free Streaming ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10420390/senior-product-manager-content-catalogue-management-ftv-free-streaming",
+      "posted_at": "May 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10419875",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Technical, Smart Glasses (Enterprise)",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10419875/senior-product-manager-technical-smart-glasses-enterprise",
+      "posted_at": "May 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10420139",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, TimeHub",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10420139/senior-product-manager-tech-timehub",
+      "posted_at": "May 14, 2026",
+      "region": "India"
+    },
+    {
+      "id": "uber-157504",
+      "company": "Uber",
+      "title": "Lead Product Manager Earner Growth",
+      "location": "San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/157504/",
+      "posted_at": "2026-05-13T13:47:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10418493",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Ads",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10418493/senior-product-manager-ads",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10419273",
+      "company": "Amazon",
+      "title": "Principal Product Manager, AWS Neurosymbolic AI",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10419273/principal-product-manager-aws-neurosymbolic-ai",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10418920",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Amazon Customer Service",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10418920/senior-product-manager-amazon-customer-service",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10418521",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Amazon Customer Service",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10418521/sr-product-manager-amazon-customer-service",
+      "posted_at": "May 13, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10418936",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Selling Partner Trust",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10418936/sr-product-manager-tech-selling-partner-trust",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10418549",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, AMXL Product Strategy",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10418549/sr-product-manager-tech-amxl-product-strategy",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10419026",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Technical, Traffic Engineering",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10419026/sr-product-manager-technical-traffic-engineering",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10418116",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Selection Monitoring",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10418116/senior-product-manager-tech-selection-monitoring",
+      "posted_at": "May 13, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10419127",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Technical, US Prime and Marketing Tech",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10419127/sr-product-manager-technical-us-prime-and-marketing-tech",
+      "posted_at": "May 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8397501002",
+      "company": "Databricks",
+      "title": "Outbound Product Manager, AI Operations",
+      "location": "Singapore",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8397501002",
+      "posted_at": "2026-05-11T20:13:20-04:00",
+      "region": "Singapore"
+    },
+    {
+      "id": "amz-10417611",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Partner-Branded Fire TV, Fire TV - Partner-Branded TVs",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10417611/principal-product-manager-tech-partner-branded-fire-tv-fire-tv-partner-branded-tvs",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10417423",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Community",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10417423/sr-product-manager-community",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10417449",
+      "company": "Amazon",
+      "title": "Principal Product Manager Tech, Selling Partner Financial Technology",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10417449/principal-product-manager-tech-selling-partner-financial-technology",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10417295",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Customer Returns",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10417295/senior-product-manager-customer-returns",
+      "posted_at": "May 12, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10417671",
+      "company": "Amazon",
+      "title": "Product Manager, AMXL Product Strategy",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10417671/product-manager-amxl-product-strategy",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10416996",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Fleet Planning and Optimization",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10416996/senior-product-manager-fleet-planning-and-optimization",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10417963",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Content Orchestration, Fire TV Experience",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10417963/senior-product-manager-tech-content-orchestration-fire-tv-experience",
+      "posted_at": "May 12, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10416424",
+      "company": "Amazon",
+      "title": "Product Manager, Payments and Retail Expansion",
+      "location": "Newark, New Jersey, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10416424/product-manager-payments-and-retail-expansion",
+      "posted_at": "May 11, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415967",
+      "company": "Amazon",
+      "title": "Product Manager- Return defect eliminaiton , RBS Return reduction ",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10415967/product-manager-return-defect-eliminaiton-rbs-return-reduction",
+      "posted_at": "May 11, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10415737",
+      "company": "Amazon",
+      "title": "Senior Product Manager, ROW UPB SupplyChain",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10415737/senior-product-manager-row-upb-supplychain",
+      "posted_at": "May 11, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10416462",
+      "company": "Amazon",
+      "title": "Product Manager - Tech, Worldwide Grocery Stores (WWGS) - Location, Strategy & Analytics",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10416462/product-manager-tech-worldwide-grocery-stores-wwgs-location-strategy-analytics",
+      "posted_at": "May 11, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415441",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, AWS Billing Product",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415441/sr-product-manager-tech-aws-billing-product",
+      "posted_at": "May  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415448",
+      "company": "Amazon",
+      "title": "Sr Product Manager-Technical, SCOT Forecasting & Labs",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415448/sr-product-manager-technical-scot-forecasting-labs",
+      "posted_at": "May  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415436",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, AWS Billing Product",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415436/principal-product-manager-technical-aws-billing-product",
+      "posted_at": "May  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "uber-147799",
+      "company": "Uber",
+      "title": "Lead Product Manager - In-App Recording (Safety)",
+      "location": "Sunnyvale, United States; San Francisco, United States; Seattle, United States; New York, United States",
+      "url": "https://www.uber.com/global/en/careers/list/147799/",
+      "posted_at": "2026-05-08T17:36:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415084",
+      "company": "Amazon",
+      "title": "Senior Product Manager",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415084/senior-product-manager",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414890",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Pricing, Amazon Global Logistics",
+      "location": "Boston, Massachusetts, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10414890/senior-product-manager-pricing-amazon-global-logistics",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415096",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Technical (External Services), AWS Marketplace",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415096/sr-product-manager-technical-external-services-aws-marketplace",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414425",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Material Handling Equipment, One Material Handling System ",
+      "location": "Springdale, Ohio, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10414425/sr-product-manager-material-handling-equipment-one-material-handling-system",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414875",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, External Services, AWS Energy & Utilities AI",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10414875/senior-product-manager-technical-external-services-aws-energy-utilities-ai",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414926",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, DSP Global Offer",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10414926/sr-product-manager-dsp-global-offer",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10415247",
+      "company": "Amazon",
+      "title": "Sr Product Manager (Tech), SCOT-AIM",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10415247/sr-product-manager-tech-scot-aim",
+      "posted_at": "May  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414636",
+      "company": "Amazon",
+      "title": "Senior Product Manager, PL Store",
+      "location": "Warsaw, Woj. Mazowieckie, POL",
+      "url": "https://www.amazon.jobs/en/jobs/10414636/senior-product-manager-pl-store",
+      "posted_at": "May  8, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10414420",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, GenAI, Amazon Rufus",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10414420/senior-product-manager-tech-genai-amazon-rufus",
+      "posted_at": "May  8, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10414576",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Tech, IN Prime",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10414576/sr-product-manager-tech-in-prime",
+      "posted_at": "May  8, 2026",
+      "region": "India"
+    },
+    {
+      "id": "uber-157795",
+      "company": "Uber",
+      "title": "Lead Product Manager, AV Labs",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/157795/",
+      "posted_at": "2026-05-07T20:35:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-157802",
+      "company": "Uber",
+      "title": "Senior Product Manager, AV Labs",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/157802/",
+      "posted_at": "2026-05-07T20:34:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-157794",
+      "company": "Uber",
+      "title": "Group Product Manager, AV Labs",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/157794/",
+      "posted_at": "2026-05-07T20:33:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10413378",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Pricing, Amazon Shipping",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10413378/senior-product-manager-pricing-amazon-shipping",
+      "posted_at": "May  7, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10413993",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, DynamoDB, DynamoDB",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10413993/senior-product-manager-technical-dynamodb-dynamodb",
+      "posted_at": "May  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10413634",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Alexa UK and Ireland",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10413634/senior-product-manager-alexa-uk-and-ireland",
+      "posted_at": "May  7, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10414308",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Amazon Finance Technology",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10414308/senior-product-manager-tech-amazon-finance-technology",
+      "posted_at": "May  7, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10413553",
+      "company": "Amazon",
+      "title": "Sr. Product Manager , Cargo Integrity & Recovery Services - Prevention",
+      "location": "Santa Monica, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10413553/sr-product-manager-cargo-integrity-recovery-services-prevention",
+      "posted_at": "May  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10413073",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Sharing & Insights",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10413073/sr-product-manager-tech-sharing-insights",
+      "posted_at": "May  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10413514",
+      "company": "Amazon",
+      "title": " Sr Product Manager - Tech, Finance Technology",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10413514/sr-product-manager-tech-finance-technology",
+      "posted_at": "May  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10414041",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Technical, High-Volume-Hiring",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10414041/sr-product-manager-technical-high-volume-hiring",
+      "posted_at": "May  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412588",
+      "company": "Amazon",
+      "title": "Principal Product Manager Technical, Business Data Technologies",
+      "location": "Detroit, Michigan, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10412588/principal-product-manager-technical-business-data-technologies",
+      "posted_at": "May  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412751",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Personal Devices",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10412751/principal-product-manager-personal-devices",
+      "posted_at": "May  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412992",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Cross Border and International Expansions",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10412992/sr-product-manager-tech-cross-border-and-international-expansions",
+      "posted_at": "May  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412915",
+      "company": "Amazon",
+      "title": "Senior Builder - Product Manager, Ring",
+      "location": "Hawthorne, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10412915/senior-builder-product-manager-ring",
+      "posted_at": "May  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412241",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Gift Cards API , WW Gift Cards",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10412241/sr-product-manager-gift-cards-api-ww-gift-cards",
+      "posted_at": "May  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10412557",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, International Emerging Stores Payments",
+      "location": "Dubai, ARE",
+      "url": "https://www.amazon.jobs/en/jobs/10412557/sr-product-manager-international-emerging-stores-payments",
+      "posted_at": "May  6, 2026",
+      "region": "Dubai"
+    },
+    {
+      "id": "amz-10411126",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, WW Sustainability Technology",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411126/senior-product-manager-tech-ww-sustainability-technology",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411118",
+      "company": "Amazon",
+      "title": "Sr. Product Manager (12 month FTC), Pre-Owned Devices",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10411118/sr-product-manager-12-month-ftc-pre-owned-devices",
+      "posted_at": "May  5, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10411169",
+      "company": "Amazon",
+      "title": "Product Manager-Tech, Subscriptions, Ring Subscriptions",
+      "location": "Hawthorne, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411169/product-manager-tech-subscriptions-ring-subscriptions",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411964",
+      "company": "Amazon",
+      "title": "Sr. Product Manager- Technical - AWS, Analytics",
+      "location": "East Palo Alto, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411964/sr-product-manager-technical-aws-analytics",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411894",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech (Royalties), Music Royalties",
+      "location": "Culver City, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411894/sr-product-manager-tech-royalties-music-royalties",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411892",
+      "company": "Amazon",
+      "title": "Product Manager - Tech (Music Royalties), Music Royalties",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411892/product-manager-tech-music-royalties-music-royalties",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411770",
+      "company": "Amazon",
+      "title": "Senior Product Manager Tech,  Selling Partner Trust and Store Integrity (TSI)",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411770/senior-product-manager-tech-selling-partner-trust-and-store-integrity-tsi",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411167",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Devices (Ring/Blink), Ring & Blink Devices",
+      "location": "Hawthorne, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411167/sr-product-manager-devices-ring-blink-ring-blink-devices",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410806",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Creators and Social",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410806/senior-product-manager-tech-creators-and-social",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10411405",
+      "company": "Amazon",
+      "title": "EU CXI Sr. Product Manager, Customer Experience Improvement",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10411405/eu-cxi-sr-product-manager-customer-experience-improvement",
+      "posted_at": "May  5, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10411418",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, WW Sustainability Technology",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10411418/senior-product-manager-tech-ww-sustainability-technology",
+      "posted_at": "May  5, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410581",
+      "company": "Amazon",
+      "title": "Product Manager - Tech, SMGS Ops - Sales Planning & Policy",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410581/product-manager-tech-smgs-ops-sales-planning-policy",
+      "posted_at": "May  4, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410580",
+      "company": "Amazon",
+      "title": "Product Manager - Tech, Sales Planning and Compensation",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410580/product-manager-tech-sales-planning-and-compensation",
+      "posted_at": "May  4, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410558",
+      "company": "Amazon",
+      "title": "Senior Technical Product Manager, Electrical Products and Services, Data Center Engineering",
+      "location": "Herndon, Virginia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410558/senior-technical-product-manager-electrical-products-and-services-data-center-engineering",
+      "posted_at": "May  4, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410054",
+      "company": "Amazon",
+      "title": "Senior SAP Finance Product Manager",
+      "location": "Arlington, Virginia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410054/senior-sap-finance-product-manager",
+      "posted_at": "May  4, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10410300",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, North America Languages Experience",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10410300/sr-product-manager-north-america-languages-experience",
+      "posted_at": "May  4, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379214",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, International - Content & Category Expertise, Amazon Rufus",
+      "location": "London, England, GBR",
+      "url": "https://www.amazon.jobs/en/jobs/10379214/sr-product-manager-international-content-category-expertise-amazon-rufus",
+      "posted_at": "May  4, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "gh-databricks-7863522002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Data Governance",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7863522002",
+      "posted_at": "2026-05-01T15:16:00-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7863365002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Data Governance",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7863365002",
+      "posted_at": "2026-05-01T15:16:00-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408600",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, ACCB",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408600/senior-product-manager-technical-accb",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10409182",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Technical Product Strategy & Operations, Amazon Customer Service ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10409182/principal-product-manager-technical-product-strategy-operations-amazon-customer-service",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10409323",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Devices Decision Science",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10409323/principal-product-manager-tech-devices-decision-science",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10409164",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Technical, Personal Information, PXT Employee Onboarding Experience",
+      "location": "Boston, Massachusetts, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10409164/sr-product-manager-technical-personal-information-pxt-employee-onboarding-experience",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408941",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Tech, Product Quality",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408941/sr-product-manager-tech-product-quality",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408940",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Tech, Product Quality",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408940/sr-product-manager-tech-product-quality",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10409025",
+      "company": "Amazon",
+      "title": "Senior Product Manager Tech, EFS",
+      "location": "Boston, Massachusetts, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10409025/senior-product-manager-tech-efs",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408641",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Global Energy, Power Generation Solutions",
+      "location": "Herndon, Virginia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408641/sr-product-manager-tech-global-energy-power-generation-solutions",
+      "posted_at": "May  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408404",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Technical, Amazon Payments Compliance",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408404/sr-product-manager-technical-amazon-payments-compliance",
+      "posted_at": "April 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407572",
+      "company": "Amazon",
+      "title": "Senior Product Manager (Technical), AWS Game Tech",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10407572/senior-product-manager-technical-aws-game-tech",
+      "posted_at": "April 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407571",
+      "company": "Amazon",
+      "title": "Senior Product Manager (Technical), AWS Game Tech",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10407571/senior-product-manager-technical-aws-game-tech",
+      "posted_at": "April 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10408084",
+      "company": "Amazon",
+      "title": "Sr. Product Manager – Tech, Tablets",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408084/sr-product-manager-tech-tablets",
+      "posted_at": "April 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407697",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, RBS SPEG ",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10407697/sr-product-manager-rbs-speg",
+      "posted_at": "April 30, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10408309",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical - Prime Video Mobile, Global Application Experience - Mobile",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10408309/senior-product-manager-technical-prime-video-mobile-global-application-experience-mobile",
+      "posted_at": "April 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407160",
+      "company": "Amazon",
+      "title": "Principal Product Manager , Amazon Aurora",
+      "location": "Redmond, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10407160/principal-product-manager-amazon-aurora",
+      "posted_at": "April 29, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407158",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, External Services, Amazon Aurora",
+      "location": "East Palo Alto, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10407158/principal-product-manager-technical-external-services-amazon-aurora",
+      "posted_at": "April 29, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407147",
+      "company": "Amazon",
+      "title": "Sr Product Manager, PSPP",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10407147/sr-product-manager-pspp",
+      "posted_at": "April 29, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10407337",
+      "company": "Amazon",
+      "title": "Tech Principal Product Manager (Live TV), Fire TV Experience",
+      "location": "Berlin, Berlin, DEU",
+      "url": "https://www.amazon.jobs/en/jobs/10407337/tech-principal-product-manager-live-tv-fire-tv-experience",
+      "posted_at": "April 29, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10406801",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Fire TV Demand Generation",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10406801/senior-product-manager-fire-tv-demand-generation",
+      "posted_at": "April 29, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10406385",
+      "company": "Amazon",
+      "title": "Sr Product Manager, Forecasting Tools, Demand Planning & Workforce Intelligence",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10406385/sr-product-manager-forecasting-tools-demand-planning-workforce-intelligence",
+      "posted_at": "April 29, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10407061",
+      "company": "Amazon",
+      "title": "Sr. Product Manager – Tech, Alexa Daily Essentials",
+      "location": "Chennai, Tamil Nadu, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10407061/sr-product-manager-tech-alexa-daily-essentials",
+      "posted_at": "April 29, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10407059",
+      "company": "Amazon",
+      "title": "Sr. Product Manager – Tech, Alexa Daily Essentials",
+      "location": "Chennai, Tamil Nadu, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10407059/sr-product-manager-tech-alexa-daily-essentials",
+      "posted_at": "April 29, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10406169",
+      "company": "Amazon",
+      "title": "Principal Product Manager-Tech, XB Ads, Global Store",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10406169/principal-product-manager-tech-xb-ads-global-store",
+      "posted_at": "April 28, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10405887",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, Amazon DocumentDB",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10405887/principal-product-manager-technical-amazon-documentdb",
+      "posted_at": "April 28, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10406258",
+      "company": "Amazon",
+      "title": "Product Manager III, DSP Capacity Planning",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10406258/product-manager-iii-dsp-capacity-planning",
+      "posted_at": "April 28, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10406144",
+      "company": "Amazon",
+      "title": "Sr Product Manager Tech, AWS Resilience, Resilience Infrastructure and Solutions",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10406144/sr-product-manager-tech-aws-resilience-resilience-infrastructure-and-solutions",
+      "posted_at": "April 28, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10404932",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, US CBCC",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10404932/sr-product-manager-us-cbcc",
+      "posted_at": "April 28, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10404505",
+      "company": "Amazon",
+      "title": " Senior Product Manager-Tech, Selling Parter Trust",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10404505/senior-product-manager-tech-selling-parter-trust",
+      "posted_at": "April 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10404396",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Buying & Forecasting, Canada Softlines",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10404396/sr-product-manager-buying-forecasting-canada-softlines",
+      "posted_at": "April 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10404412",
+      "company": "Amazon",
+      "title": "Sr. Product Manager Technical, Talent Acquisition - Technology",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10404412/sr-product-manager-technical-talent-acquisition-technology",
+      "posted_at": "April 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10402974",
+      "company": "Amazon",
+      "title": "Senior Product Manager - TOM Products, TOM Products",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10402974/senior-product-manager-tom-products-tom-products",
+      "posted_at": "April 24, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10402356",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Marketplace Fees, MENA 3P Profitability & Selection",
+      "location": "Dubai, ARE",
+      "url": "https://www.amazon.jobs/en/jobs/10402356/sr-product-manager-marketplace-fees-mena-3p-profitability-selection",
+      "posted_at": "April 24, 2026",
+      "region": "Dubai"
+    },
+    {
+      "id": "amz-10402991",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, Amazon Customer Service ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10402991/principal-product-manager-technical-amazon-customer-service",
+      "posted_at": "April 24, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10403006",
+      "company": "Amazon",
+      "title": "Product Manager - Technical, Data Center Design Engineering - BIM & AI Technologies",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10403006/product-manager-technical-data-center-design-engineering-bim-ai-technologies",
+      "posted_at": "April 24, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10402839",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Amazon Private Brands",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10402839/sr-product-manager-tech-amazon-private-brands",
+      "posted_at": "April 24, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10402664",
+      "company": "Amazon",
+      "title": "Sr. Product Manager-Tech, Last Mile DSP Tech",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10402664/sr-product-manager-tech-last-mile-dsp-tech",
+      "posted_at": "April 24, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10402081",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Sponsored Products and Brands",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10402081/senior-product-manager-tech-sponsored-products-and-brands",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10401837",
+      "company": "Amazon",
+      "title": "Senior Product Manager Tech, Prime Video",
+      "location": "Culver City, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10401837/senior-product-manager-tech-prime-video",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10401414",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Vendor Integration, Vendor Strategy",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10401414/principal-product-manager-vendor-integration-vendor-strategy",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10401420",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Selling Partner Services",
+      "location": "Tempe, Arizona, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10401420/senior-product-manager-tech-selling-partner-services",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10401015",
+      "company": "Amazon",
+      "title": "Sr. Product Manager (12 month FTC), Pre-Owned Devices",
+      "location": "Luxembourg, LUX",
+      "url": "https://www.amazon.jobs/en/jobs/10401015/sr-product-manager-12-month-ftc-pre-owned-devices",
+      "posted_at": "April 23, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10401354",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, AFX - Sales Planning Tools",
+      "location": "Dallas, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10401354/sr-product-manager-afx-sales-planning-tools",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10400819",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Shipper Integrations, Amazon Freight",
+      "location": "Atlanta, Georgia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10400819/sr-product-manager-shipper-integrations-amazon-freight",
+      "posted_at": "April 23, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10400884",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Technical, Small and Medium Business Financing",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10400884/sr-product-manager-technical-small-and-medium-business-financing",
+      "posted_at": "April 23, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10399354",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Customer Fulfilment Experience",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10399354/sr-product-manager-tech-customer-fulfilment-experience",
+      "posted_at": "April 22, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10399081",
+      "company": "Amazon",
+      "title": "Principal Product Manager-Tech, Devices and Software Services (DS2)",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10399081/principal-product-manager-tech-devices-and-software-services-ds2",
+      "posted_at": "April 22, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10397576",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, WW Prime Monetization, WW Prime - Benefits, Pricing & Constructs",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10397576/sr-product-manager-ww-prime-monetization-ww-prime-benefits-pricing-constructs",
+      "posted_at": "April 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10398080",
+      "company": "Amazon",
+      "title": "Senior Product Manager, WFM E-Commerce and Product Management",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10398080/senior-product-manager-wfm-e-commerce-and-product-management",
+      "posted_at": "April 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10398163",
+      "company": "Amazon",
+      "title": "Supply Chain Product Manager, New Product Introductions",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10398163/supply-chain-product-manager-new-product-introductions",
+      "posted_at": "April 21, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10397131",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Technical , Leo Trust and Privacy",
+      "location": "Redmond, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10397131/principal-product-manager-technical-leo-trust-and-privacy",
+      "posted_at": "April 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10397381",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, Shopper Understanding and Response Prediction",
+      "location": "Palo Alto, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10397381/principal-product-manager-technical-shopper-understanding-and-response-prediction",
+      "posted_at": "April 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10396459",
+      "company": "Amazon",
+      "title": "Principal Product Manager, World Wide Returns and Recommerce",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10396459/principal-product-manager-world-wide-returns-and-recommerce",
+      "posted_at": "April 20, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10397361",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Tech External Svcs, Demand Intelligence, Amazon Connect Decisions",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10397361/principal-product-manager-tech-external-svcs-demand-intelligence-amazon-connect-decisions",
+      "posted_at": "April 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10397309",
+      "company": "Amazon",
+      "title": "Principal Product Manager Tech - Ad Server, Publisher Decision Engine",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10397309/principal-product-manager-tech-ad-server-publisher-decision-engine",
+      "posted_at": "April 20, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10396813",
+      "company": "Amazon",
+      "title": "Sr.Product Manager - Tech, Trustworthy Shopping Experience - Ops",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10396813/sr-product-manager-tech-trustworthy-shopping-experience-ops",
+      "posted_at": "April 20, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10394700",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Enterprise Systems & AI Automation , OMHS",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10394700/sr-product-manager-enterprise-systems-ai-automation-omhs",
+      "posted_at": "April 17, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10394577",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Prime Video Financial Systems",
+      "location": "Culver City, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10394577/senior-product-manager-tech-prime-video-financial-systems",
+      "posted_at": "April 17, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381275",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Amazon Music AI and Personalization",
+      "location": "Berlin, Berlin, DEU",
+      "url": "https://www.amazon.jobs/en/jobs/10381275/senior-product-manager-tech-amazon-music-ai-and-personalization",
+      "posted_at": "April 16, 2026",
+      "region": "EMEA"
+    },
+    {
+      "id": "amz-10393036",
+      "company": "Amazon",
+      "title": "Sr. Product Manager-Tech, Music Catalog",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10393036/sr-product-manager-tech-music-catalog",
+      "posted_at": "April 15, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10393242",
+      "company": "Amazon",
+      "title": "Senior Product Manager – Logistics Networks, Shipment Technologies",
+      "location": "Hyderabad, Telangana, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10393242/senior-product-manager-logistics-networks-shipment-technologies",
+      "posted_at": "April 15, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10390810",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Amazon",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10390810/senior-product-manager-amazon",
+      "posted_at": "April 14, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10391032",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, AWS Payments and Fraud Prevention",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10391032/senior-product-manager-tech-aws-payments-and-fraud-prevention",
+      "posted_at": "April 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10392262",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Just Walk Out Technology",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10392262/sr-product-manager-tech-just-walk-out-technology",
+      "posted_at": "April 14, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10391118",
+      "company": "Amazon",
+      "title": "Sr. Product Manager- Technical, WW Ops Finance S&A",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10391118/sr-product-manager-technical-ww-ops-finance-s-a",
+      "posted_at": "April 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10391375",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Tablets",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10391375/senior-product-manager-tablets",
+      "posted_at": "April 14, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10390423",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Alexa Built-In Experiences",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10390423/sr-product-manager-tech-alexa-built-in-experiences",
+      "posted_at": "April 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10390110",
+      "company": "Amazon",
+      "title": "Principal Product Manager Tech, Prime Video",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10390110/principal-product-manager-tech-prime-video",
+      "posted_at": "April 13, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10389175",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Technical, Amazon Music  Growth and Partnerships",
+      "location": "Culver City, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10389175/sr-product-manager-technical-amazon-music-growth-and-partnerships",
+      "posted_at": "April 11, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10389052",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Amazon Tablet/eReader",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10389052/senior-product-manager-technical-amazon-tablet-ereader",
+      "posted_at": "April 10, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10388419",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Scorecard, Global SLS",
+      "location": "Nashville, Tennessee, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10388419/sr-product-manager-scorecard-global-sls",
+      "posted_at": "April 10, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10388810",
+      "company": "Amazon",
+      "title": "Sr. Product Manager – Tech, Tablets",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10388810/sr-product-manager-tech-tablets",
+      "posted_at": "April 10, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8427940002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, AI Platform",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8427940002",
+      "posted_at": "2026-04-09T16:51:27-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8420609002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, AI Platform",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8420609002",
+      "posted_at": "2026-04-09T16:51:27-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8420607002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Serverless Workspaces",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8420607002",
+      "posted_at": "2026-04-09T16:51:27-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8427954002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Serverless Workspaces",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8427954002",
+      "posted_at": "2026-04-09T16:51:27-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8387085002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager - Technical",
+      "location": "New York City, New York",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8387085002",
+      "posted_at": "2026-04-09T16:51:25-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8394060002",
+      "company": "Databricks",
+      "title": "Staff Product Manager - Technical",
+      "location": "Amsterdam, Netherlands",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8394060002",
+      "posted_at": "2026-04-09T16:51:25-04:00",
+      "region": "EMEA"
+    },
+    {
+      "id": "gh-databricks-8326570002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks Repos",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8326570002",
+      "posted_at": "2026-04-09T16:51:21-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8326513002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks Repos",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8326513002",
+      "posted_at": "2026-04-09T16:51:21-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8200462002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Compute Platform",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8200462002",
+      "posted_at": "2026-04-09T16:51:18-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8200284002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Compute Platform",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8200284002",
+      "posted_at": "2026-04-09T16:51:18-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8186386002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Lakeflow",
+      "location": "Amsterdam, Netherlands",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8186386002",
+      "posted_at": "2026-04-09T16:51:17-04:00",
+      "region": "EMEA"
+    },
+    {
+      "id": "gh-databricks-8136204002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks AI",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8136204002",
+      "posted_at": "2026-04-09T16:51:16-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8136071002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks AI",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8136071002",
+      "posted_at": "2026-04-09T16:51:16-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8040989002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Content Experience",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8040989002",
+      "posted_at": "2026-04-09T16:51:15-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8041821002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Content Experience",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8041821002",
+      "posted_at": "2026-04-09T16:51:15-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7924423002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, DBSQL",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7924423002",
+      "posted_at": "2026-04-09T16:51:12-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7929994002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, DBSQL",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7929994002",
+      "posted_at": "2026-04-09T16:51:12-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8235785002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks Free Edition",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8235785002",
+      "posted_at": "2026-04-09T16:51:11-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7680573002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks Free Edition",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7680573002",
+      "posted_at": "2026-04-09T16:51:11-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7649411002",
+      "company": "Databricks",
+      "title": "Staff Product Manager",
+      "location": "Berlin, Germany",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7649411002",
+      "posted_at": "2026-04-09T16:51:11-04:00",
+      "region": "EMEA"
+    },
+    {
+      "id": "gh-databricks-7649409002",
+      "company": "Databricks",
+      "title": "Staff Product Manager",
+      "location": "Amsterdam, Netherlands",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7649409002",
+      "posted_at": "2026-04-09T16:51:11-04:00",
+      "region": "EMEA"
+    },
+    {
+      "id": "gh-databricks-7110509002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Security",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7110509002",
+      "posted_at": "2026-04-09T16:51:09-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7110499002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, Security",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7110499002",
+      "posted_at": "2026-04-09T16:51:09-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-6322654002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Data Engineering",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=6322654002",
+      "posted_at": "2026-04-09T16:51:05-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10386879",
+      "company": "Amazon",
+      "title": "Sr. Product Manager-Technical, Prime VIdeo Advertising - Supply Enablement",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10386879/sr-product-manager-technical-prime-video-advertising-supply-enablement",
+      "posted_at": "April  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10387057",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Prime Video Sports & Linear Operations",
+      "location": "Arlington, Virginia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10387057/sr-product-manager-tech-prime-video-sports-linear-operations",
+      "posted_at": "April  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10387828",
+      "company": "Amazon",
+      "title": "Product Manager, Mexico Online, Ring/Blink Sales and Marketing",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10387828/product-manager-mexico-online-ring-blink-sales-and-marketing",
+      "posted_at": "April  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10388006",
+      "company": "Amazon",
+      "title": "Sr Product Manager, Delivery Speed, Canada Delivery Speed and Experience",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10388006/sr-product-manager-delivery-speed-canada-delivery-speed-and-experience",
+      "posted_at": "April  9, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10386685",
+      "company": "Amazon",
+      "title": "SAP MDG Product Manager, Amazon Leo",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10386685/sap-mdg-product-manager-amazon-leo",
+      "posted_at": "April  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10385811",
+      "company": "Amazon",
+      "title": "Sr.Product Manager - Tech",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10385811/sr-product-manager-tech",
+      "posted_at": "April  8, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10386653",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Creator Products",
+      "location": "Culver City, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10386653/principal-product-manager-creator-products",
+      "posted_at": "April  8, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10385467",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Technical - Amazon Leo, Leo Trust and Privacy",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10385467/sr-product-manager-technical-amazon-leo-leo-trust-and-privacy",
+      "posted_at": "April  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10385341",
+      "company": "Amazon",
+      "title": "Product Manager - Technical , Database Pricing Team ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10385341/product-manager-technical-database-pricing-team",
+      "posted_at": "April  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10385052",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Technical, US Prime and Marketing Tech",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10385052/sr-product-manager-technical-us-prime-and-marketing-tech",
+      "posted_at": "April  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10385411",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, MMPO",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10385411/sr-product-manager-mmpo",
+      "posted_at": "April  7, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10384250",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Tech, Enterprise Security Products",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10384250/sr-product-manager-tech-enterprise-security-products",
+      "posted_at": "April  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10384091",
+      "company": "Amazon",
+      "title": "Senior Technical Product Manager, AWS Central Economics and Science",
+      "location": "San Francisco, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10384091/senior-technical-product-manager-aws-central-economics-and-science",
+      "posted_at": "April  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10384518",
+      "company": "Amazon",
+      "title": "AWS Sr Product Manager Tech, AWS Support",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10384518/aws-sr-product-manager-tech-aws-support",
+      "posted_at": "April  6, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10383495",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, AWS Server Supply Chain",
+      "location": "Cupertino, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10383495/sr-product-manager-aws-server-supply-chain",
+      "posted_at": "April  3, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382921",
+      "company": "Amazon",
+      "title": "Senior Manager, Product Manager - Tech, FinTech",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382921/senior-manager-product-manager-tech-fintech",
+      "posted_at": "April  3, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10383388",
+      "company": "Amazon",
+      "title": "Principal Product Manager-Tech, AI Productivity, Amazon Games GenAI & Strategic Initiatives",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10383388/principal-product-manager-tech-ai-productivity-amazon-games-genai-strategic-initiatives",
+      "posted_at": "April  3, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10383502",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - rare earth metals",
+      "location": "Cupertino, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10383502/sr-product-manager-rare-earth-metals",
+      "posted_at": "April  3, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382916",
+      "company": "Amazon",
+      "title": " Principal Product Manager, 3P Seller, AMXL Strategy & Engineering",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382916/principal-product-manager-3p-seller-amxl-strategy-engineering",
+      "posted_at": "April  3, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382725",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Reading Subscriptions WW Selection",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382725/sr-product-manager-reading-subscriptions-ww-selection",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382465",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Reading Subscriptions WW Selection",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382465/sr-product-manager-tech-reading-subscriptions-ww-selection",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381895",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Technical , AWS Healthcare AI",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381895/principal-product-manager-technical-aws-healthcare-ai",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382708",
+      "company": "Amazon",
+      "title": "Sr. Product Manager, Worldwide Grocery Stores Tech (WWGST)",
+      "location": "Austin, Texas, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382708/sr-product-manager-worldwide-grocery-stores-tech-wwgst",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381883",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Secure Third Party Tools",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381883/sr-product-manager-tech-secure-third-party-tools",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382420",
+      "company": "Amazon",
+      "title": "Sr. Product Manager-Technical, Merch on Demand",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382420/sr-product-manager-technical-merch-on-demand",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381963",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Technical, Alexa Connections",
+      "location": "Sunnyvale, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381963/principal-product-manager-technical-alexa-connections",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10382096",
+      "company": "Amazon",
+      "title": " Sr Product Manager - Tech, Finance Technology",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10382096/sr-product-manager-tech-finance-technology",
+      "posted_at": "April  2, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381421",
+      "company": "Amazon",
+      "title": "Principal Product Manager, High ASP, US 3P ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381421/principal-product-manager-high-asp-us-3p",
+      "posted_at": "April  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381733",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381733/senior-product-manager-tech",
+      "posted_at": "April  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381285",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Relay Supply Products and Technology",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381285/senior-product-manager-relay-supply-products-and-technology",
+      "posted_at": "April  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381543",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Enterprise Systems & AI Automation , OMHS",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381543/sr-product-manager-enterprise-systems-ai-automation-omhs",
+      "posted_at": "April  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10381791",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Chronicle Analytics",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10381791/sr-product-manager-tech-chronicle-analytics",
+      "posted_at": "April  1, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10380051",
+      "company": "Amazon",
+      "title": "Principal Product Manager-Tech, DEX",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10380051/principal-product-manager-tech-dex",
+      "posted_at": "March 31, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10380674",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Global Logistics Exports",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10380674/senior-product-manager-global-logistics-exports",
+      "posted_at": "March 31, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379752",
+      "company": "Amazon",
+      "title": "Senior Product Manager -Tech, AWS Tech and Finance",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379752/senior-product-manager-tech-aws-tech-and-finance",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379616",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Devices & Services Sustainability Team",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379616/principal-product-manager-tech-devices-services-sustainability-team",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379032",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Amazon Games GenAI & Strategic Initiatives",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379032/principal-product-manager-tech-amazon-games-genai-strategic-initiatives",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379221",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Technical, Database Services",
+      "location": "Redmond, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379221/senior-product-manager-technical-database-services",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379669",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Alexa Connections",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379669/senior-product-manager-technical-alexa-connections",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10378965",
+      "company": "Amazon",
+      "title": "Sr. Product Manager - Tech, Sponsored Ads (Emerging Markets)",
+      "location": "Bengaluru, Karnataka, IND",
+      "url": "https://www.amazon.jobs/en/jobs/10378965/sr-product-manager-tech-sponsored-ads-emerging-markets",
+      "posted_at": "March 30, 2026",
+      "region": "India"
+    },
+    {
+      "id": "amz-10379316",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Technical, Device Sales and Customer Experience",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379316/principal-product-manager-technical-device-sales-and-customer-experience",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10379593",
+      "company": "Amazon",
+      "title": "Principal Product Manager, Tech, Amazon Connect",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10379593/principal-product-manager-tech-amazon-connect",
+      "posted_at": "March 30, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "uber-153222",
+      "company": "Uber",
+      "title": "Director, Product Management, Earner Experience",
+      "location": "Bangalore, India",
+      "url": "https://www.uber.com/global/en/careers/list/153222/",
+      "posted_at": "2026-03-27T22:33:00.000Z",
+      "region": "India"
+    },
+    {
+      "id": "amz-10378323",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Private Pricing Product Management (3PM) ",
+      "location": "Arlington, Virginia, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10378323/senior-product-manager-tech-private-pricing-product-management-3pm",
+      "posted_at": "March 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10378370",
+      "company": "Amazon",
+      "title": "Principal Product Manager - Tech, Digital Acceleration",
+      "location": "Bellevue, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10378370/principal-product-manager-tech-digital-acceleration",
+      "posted_at": "March 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10378608",
+      "company": "Amazon",
+      "title": "Senior Product Manager, Tech, Content & App Partner Engagement Business Intelligence ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10378608/senior-product-manager-tech-content-app-partner-engagement-business-intelligence",
+      "posted_at": "March 27, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10377337",
+      "company": "Amazon",
+      "title": "Principal Product Manager -Tech,  Payment Acceptance & Experience Cost to Serve",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10377337/principal-product-manager-tech-payment-acceptance-experience-cost-to-serve",
+      "posted_at": "March 26, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10376702",
+      "company": "Amazon",
+      "title": "Sr Product Manager - Technical Products, Pay by Invoice",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10376702/sr-product-manager-technical-products-pay-by-invoice",
+      "posted_at": "March 26, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10376641",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Tech, Private Pricing Product Management (3PM) ",
+      "location": "New York, New York, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10376641/senior-product-manager-tech-private-pricing-product-management-3pm",
+      "posted_at": "March 26, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10377715",
+      "company": "Amazon",
+      "title": "Senior Product Manager Tech, Prime Video Personalization & Discovery",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10377715/senior-product-manager-tech-prime-video-personalization-discovery",
+      "posted_at": "March 26, 2026",
+      "region": "USA"
+    }
+  ]
 }
