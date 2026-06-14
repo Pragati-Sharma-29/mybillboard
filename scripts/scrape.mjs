@@ -130,7 +130,42 @@ async function jpost(url, body, extraHeaders = {}) {
   }, REQUEST_TIMEOUT_MS);
 }
 
-// ---------- Greenhouse (Canva, Databricks, Snowflake, Atlan, Grab) ----------
+// ---------- SmartRecruiters (Grab) ----------
+async function smartRecruiters(companyToken, companyName) {
+  const out = [];
+  let offset = 0;
+  for (let i = 0; i < 10; i++) {
+    let data;
+    try {
+      data = await jget(
+        `https://api.smartrecruiters.com/v1/companies/${companyToken}/postings?limit=100&offset=${offset}`,
+      );
+    } catch (e) {
+      if (i === 0) throw e;
+      break;
+    }
+    const postings = data?.content || [];
+    if (postings.length === 0) break;
+    for (const j of postings) {
+      const loc = [j.location?.city, j.location?.region, j.location?.country]
+        .filter(Boolean)
+        .join(', ');
+      out.push({
+        id: `sr-${companyToken}-${j.id}`,
+        company: companyName,
+        title: j.name,
+        location: j.location?.remote ? `${loc} (Remote)` : loc,
+        url: `https://jobs.smartrecruiters.com/${companyToken}/${j.id}`,
+        posted_at: j.releasedDate || j.createdOn || null,
+      });
+    }
+    offset += postings.length;
+    if (postings.length < 100) break;
+  }
+  return out;
+}
+
+// ---------- Greenhouse (Canva, Databricks, Snowflake, Atlan) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
     `https://boards-api.greenhouse.io/v1/boards/${boardToken}/jobs?content=false`,
@@ -381,7 +416,7 @@ const SOURCES = [
   ['Databricks', () => greenhouse('databricks', 'Databricks')],
   ['Snowflake',  () => greenhouse('snowflake', 'Snowflake')],
   ['Atlan',      () => greenhouse('atlan', 'Atlan')],
-  ['Grab',       () => greenhouse('grab', 'Grab')],
+  ['Grab',       () => smartRecruiters('Grab', 'Grab')],
   ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
   ['Amazon',     () => amazon()],
 ];
