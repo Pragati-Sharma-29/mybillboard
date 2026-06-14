@@ -130,39 +130,135 @@ async function jpost(url, body, extraHeaders = {}) {
   }, REQUEST_TIMEOUT_MS);
 }
 
-// ---------- SmartRecruiters (Grab) ----------
-async function smartRecruiters(companyToken, companyName) {
-  const out = [];
-  let offset = 0;
-  for (let i = 0; i < 10; i++) {
-    let data;
-    try {
-      data = await jget(
-        `https://api.smartrecruiters.com/v1/companies/${companyToken}/postings?limit=100&offset=${offset}`,
-      );
-    } catch (e) {
-      if (i === 0) throw e;
-      break;
-    }
-    const postings = data?.content || [];
-    if (postings.length === 0) break;
-    for (const j of postings) {
-      const loc = [j.location?.city, j.location?.region, j.location?.country]
-        .filter(Boolean)
-        .join(', ');
-      out.push({
-        id: `sr-${companyToken}-${j.id}`,
-        company: companyName,
-        title: j.name,
-        location: j.location?.remote ? `${loc} (Remote)` : loc,
-        url: `https://jobs.smartrecruiters.com/${companyToken}/${j.id}`,
-        posted_at: j.releasedDate || j.createdOn || null,
-      });
-    }
-    offset += postings.length;
-    if (postings.length < 100) break;
+// ---------- Grab (grab.careers — Phenom / Next.js portal) ----------
+// Their listings live at www.grab.careers/en/jobs/?search=...&country=...
+// The page hydrates from a __NEXT_DATA__ JSON island; we also fall back
+// to JSON-LD JobPosting blocks and to a couple of plausible JSON APIs.
+async function fetchText(url, headers = {}) {
+  return withTimeout(async (signal) => {
+    const r = await fetch(url, {
+      signal,
+      headers: {
+        'User-Agent': UA,
+        Accept: 'text/html,application/xhtml+xml,application/json',
+        ...headers,
+      },
+    });
+    if (!r.ok) throw new Error(`${r.status} ${url}`);
+    return r.text();
+  }, REQUEST_TIMEOUT_MS);
+}
+
+function walkForJobs(node, push) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) {
+    for (const item of node) walkForJobs(item, push);
+    return;
   }
-  return out;
+  const t = node.title || node.jobTitle || node.name;
+  const loc =
+    node.location ||
+    node.jobLocation ||
+    node.primaryLocation ||
+    (Array.isArray(node.locations) ? node.locations.join(', ') : null);
+  const id = node.id || node.jobId || node.reqId || node.requisitionId;
+  const url = node.url || node.applyUrl || node.jobUrl || node.link;
+  const looksLikeJob =
+    t &&
+    typeof t === 'string' &&
+    (id || url) &&
+    /product\s+manager|head of product|director.*product|product lead/i.test(t);
+  if (looksLikeJob) push({ title: t, location: loc, id, url, node });
+  for (const v of Object.values(node)) walkForJobs(v, push);
+}
+
+async function grab() {
+  const out = new Map(); // dedupe by url
+  // Several search variants — Singapore + India + EMEA + Dubai + US.
+  const pageUrls = [
+    'https://www.grab.careers/en/jobs/?search=Product+Manager&country=Singapore&pagesize=100',
+    'https://www.grab.careers/en/jobs/?search=Product+Manager&pagesize=100',
+    'https://www.grab.careers/en/jobs/?search=Senior+Product+Manager&pagesize=100',
+  ];
+
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+
+    // 1. __NEXT_DATA__ JSON island (Next.js / Phenom)
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (next) {
+      try {
+        const root = JSON.parse(next[1]);
+        walkForJobs(root, (j) => {
+          const id = j.id || j.url;
+          const jobUrl =
+            j.url && /^https?:/.test(j.url)
+              ? j.url
+              : j.id
+                ? `https://www.grab.careers/en/jobs/${j.id}/`
+                : null;
+          if (!jobUrl) return;
+          out.set(jobUrl, {
+            id: `grab-${id}`,
+            company: 'Grab',
+            title: j.title,
+            location:
+              typeof j.location === 'string'
+                ? j.location
+                : j.location?.city ||
+                  j.location?.name ||
+                  j.node?.city ||
+                  j.node?.country ||
+                  '',
+            url: jobUrl,
+            posted_at: j.node?.postedDate || j.node?.updatedAt || j.node?.createdAt || null,
+          });
+        });
+      } catch {
+        // fall through
+      }
+    }
+
+    // 2. JSON-LD JobPosting fallback
+    const ldMatches = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)];
+    for (const m of ldMatches) {
+      try {
+        const obj = JSON.parse(m[1]);
+        const arr = Array.isArray(obj) ? obj : [obj];
+        for (const entry of arr) {
+          if (entry['@type'] !== 'JobPosting' && entry['@type'] !== 'JobPosting'.toLowerCase()) continue;
+          const loc =
+            entry.jobLocation?.address?.addressLocality ||
+            entry.jobLocation?.address?.addressCountry ||
+            (Array.isArray(entry.jobLocation)
+              ? entry.jobLocation
+                  .map((l) => l.address?.addressLocality)
+                  .filter(Boolean)
+                  .join(', ')
+              : '');
+          const u = entry.url || entry.identifier?.value;
+          if (!u || !entry.title) continue;
+          out.set(u, {
+            id: `grab-${entry.identifier?.value || u}`,
+            company: 'Grab',
+            title: entry.title,
+            location: loc,
+            url: u,
+            posted_at: entry.datePosted || null,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  return [...out.values()];
 }
 
 // ---------- Greenhouse (Canva, Databricks, Snowflake, Atlan) ----------
@@ -416,7 +512,7 @@ const SOURCES = [
   ['Databricks', () => greenhouse('databricks', 'Databricks')],
   ['Snowflake',  () => greenhouse('snowflake', 'Snowflake')],
   ['Atlan',      () => greenhouse('atlan', 'Atlan')],
-  ['Grab',       () => smartRecruiters('Grab', 'Grab')],
+  ['Grab',       () => grab()],
   ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
   ['Amazon',     () => amazon()],
 ];
