@@ -326,7 +326,115 @@ async function databricks() {
   return [...seen.values()];
 }
 
-// ---------- Greenhouse (Canva, Snowflake, Atlan) ----------
+// ---------- Snowflake (careers.snowflake.com — Phenom portal) ----------
+async function snowflake() {
+  const out = new Map();
+  const pageUrls = [
+    'https://careers.snowflake.com/us/en/search-results?keywords=Product+Manager',
+    'https://careers.snowflake.com/us/en/search-results?keywords=Senior+Product+Manager',
+    'https://careers.snowflake.com/us/en/search-results?keywords=Head+of+Product',
+  ];
+
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+
+    // __NEXT_DATA__ / inline state JSON
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (next) {
+      try {
+        const root = JSON.parse(next[1]);
+        walkForJobs(root, (j) => {
+          const id = j.id || j.url;
+          const jobUrl =
+            j.url && /^https?:/.test(j.url)
+              ? j.url
+              : j.id
+                ? `https://careers.snowflake.com/us/en/job/${j.id}`
+                : null;
+          if (!jobUrl) return;
+          out.set(jobUrl, {
+            id: `snowflake-${id}`,
+            company: 'Snowflake',
+            title: j.title,
+            location:
+              typeof j.location === 'string'
+                ? j.location
+                : j.location?.city || j.location?.name || j.node?.city || '',
+            url: jobUrl,
+            posted_at: j.node?.postedDate || j.node?.updatedAt || null,
+          });
+        });
+      } catch {
+        // fall through
+      }
+    }
+
+    // JSON-LD JobPosting
+    const ldMatches = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)];
+    for (const m of ldMatches) {
+      try {
+        const obj = JSON.parse(m[1]);
+        const arr = Array.isArray(obj) ? obj : [obj];
+        for (const entry of arr) {
+          if (entry['@type'] !== 'JobPosting') continue;
+          const loc =
+            entry.jobLocation?.address?.addressLocality ||
+            entry.jobLocation?.address?.addressCountry ||
+            (Array.isArray(entry.jobLocation)
+              ? entry.jobLocation
+                  .map((l) => l.address?.addressLocality)
+                  .filter(Boolean)
+                  .join(', ')
+              : '');
+          const u = entry.url || entry.identifier?.value;
+          if (!u || !entry.title) continue;
+          out.set(u, {
+            id: `snowflake-${entry.identifier?.value || u}`,
+            company: 'Snowflake',
+            title: entry.title,
+            location: loc,
+            url: u,
+            posted_at: entry.datePosted || null,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  // Phenom widgets API as a third attempt — best-effort, may 404.
+  try {
+    const data = await jget(
+      'https://careers.snowflake.com/widgets/jobs/?keyword=Product&pageSize=100',
+    );
+    const list = data?.jobs || data?.refNum || data?.content || [];
+    for (const j of Array.isArray(list) ? list : []) {
+      const t = j.title || j.jobTitle;
+      const u = j.url || j.applyUrl || (j.id && `https://careers.snowflake.com/us/en/job/${j.id}`);
+      if (!t || !u) continue;
+      out.set(u, {
+        id: `snowflake-w-${j.id || u}`,
+        company: 'Snowflake',
+        title: t,
+        location: j.location || j.city || '',
+        url: u,
+        posted_at: j.postedDate || j.updatedAt || null,
+      });
+    }
+  } catch {
+    // ignore
+  }
+
+  return [...out.values()];
+}
+
+// ---------- Greenhouse (Canva, Atlan) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
     `https://boards-api.greenhouse.io/v1/boards/${boardToken}/jobs?content=false`,
@@ -575,7 +683,7 @@ const SOURCES = [
   ['Uber',       () => uber()],
   ['Canva',      () => greenhouse('canva', 'Canva')],
   ['Databricks', () => databricks()],
-  ['Snowflake',  () => greenhouse('snowflake', 'Snowflake')],
+  ['Snowflake',  () => snowflake()],
   ['Atlan',      () => greenhouse('atlan', 'Atlan')],
   ['Grab',       () => grab()],
   ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
