@@ -37,13 +37,14 @@ export const PROFILE = {
     'director of product', 'director, product', 'head of product',
     'product lead',
   ],
-  // Region preference — based in Hyderabad.
+  // Region preference — based in Hyderabad. Strict ordering:
+  // India > Singapore > EMEA > Dubai > USA (US barely contributes).
   regionBoost: {
     India: 30,
-    Singapore: 15,
-    EMEA: 15,
-    Dubai: 10,
-    USA: 8,
+    Singapore: 25,
+    EMEA: 20,
+    Dubai: 15,
+    USA: 2,
   },
 };
 
