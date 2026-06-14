@@ -86,10 +86,59 @@ body {
   border-color: var(--accent);
 }
 
+.tab.tab-match {
+  border-color: rgba(251, 191, 36, 0.45);
+  color: #fbbf24;
+}
+.tab.tab-match.active {
+  background: linear-gradient(135deg, #fbbf24, #f97316);
+  color: #1a0f00;
+  border-color: transparent;
+}
+
 .tab .count {
   margin-left: 6px;
   font-size: 12px;
   opacity: 0.85;
+}
+
+.match-banner {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(249, 115, 22, 0.08));
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: #fde68a;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin: 4px 0 14px;
+}
+
+.tag.tag-region {
+  background: rgba(148, 163, 184, 0.12);
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.tag.tag-score {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fcd34d;
+  border-color: rgba(251, 191, 36, 0.3);
+  font-weight: 600;
+  text-transform: lowercase;
+}
+
+.match-keywords {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.kw {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(96, 165, 250, 0.08);
+  color: #93c5fd;
+  border: 1px solid rgba(96, 165, 250, 0.18);
 }
 
 .toolbar {
