@@ -261,7 +261,72 @@ async function grab() {
   return [...out.values()];
 }
 
-// ---------- Greenhouse (Canva, Databricks, Snowflake, Atlan) ----------
+// ---------- Databricks (Greenhouse + databricks.com merge) ----------
+// Greenhouse is the upstream that databricks.com queries, but the user
+// flagged seeing roles on databricks.com — scrape both and dedupe so we
+// catch anything published outside the Greenhouse feed.
+async function databricksWebsite() {
+  const out = new Map();
+  const pageUrls = [
+    'https://www.databricks.com/company/careers/open-positions?department=Product',
+    'https://www.databricks.com/company/careers/open-positions?department=Product&location=EMEA',
+    'https://www.databricks.com/company/careers/open-positions?department=Product&location=APAC',
+  ];
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (!next) continue;
+    let root;
+    try {
+      root = JSON.parse(next[1]);
+    } catch {
+      continue;
+    }
+    walkForJobs(root, (j) => {
+      const id = j.id || j.url;
+      const jobUrl =
+        j.url && /^https?:/.test(j.url)
+          ? j.url
+          : j.node?.absolute_url || (j.id ? `https://www.databricks.com/company/careers/${j.id}` : null);
+      if (!jobUrl) return;
+      out.set(jobUrl, {
+        id: `db-web-${id}`,
+        company: 'Databricks',
+        title: j.title,
+        location:
+          typeof j.location === 'string'
+            ? j.location
+            : j.location?.name || j.location?.city || j.node?.location?.name || '',
+        url: jobUrl,
+        posted_at: j.node?.updated_at || j.node?.first_published || null,
+      });
+    });
+  }
+  return [...out.values()];
+}
+
+async function databricks() {
+  const results = await Promise.allSettled([
+    greenhouse('databricks', 'Databricks'),
+    databricksWebsite(),
+  ]);
+  const seen = new Map();
+  for (const r of results) {
+    if (r.status !== 'fulfilled') continue;
+    for (const j of r.value) {
+      const key = j.url || j.id;
+      if (!seen.has(key)) seen.set(key, j);
+    }
+  }
+  return [...seen.values()];
+}
+
+// ---------- Greenhouse (Canva, Snowflake, Atlan) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
     `https://boards-api.greenhouse.io/v1/boards/${boardToken}/jobs?content=false`,
@@ -509,7 +574,7 @@ const SOURCES = [
   ['Meta',       () => meta()],
   ['Uber',       () => uber()],
   ['Canva',      () => greenhouse('canva', 'Canva')],
-  ['Databricks', () => greenhouse('databricks', 'Databricks')],
+  ['Databricks', () => databricks()],
   ['Snowflake',  () => greenhouse('snowflake', 'Snowflake')],
   ['Atlan',      () => greenhouse('atlan', 'Atlan')],
   ['Grab',       () => grab()],
