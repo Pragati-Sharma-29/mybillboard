@@ -14,7 +14,8 @@ const OUT_DIR = resolve(__dirname, '..', 'public');
 const OUT_PATH = resolve(OUT_DIR, 'jobs.json');
 
 const UA =
-  'Mozilla/5.0 (compatible; PMJobBoard/1.0; +https://github.com/Pragati-Sharma-29/mybillboard)';
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+  '(KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36';
 const MAX_AGE_DAYS = 60;
 const REQUEST_TIMEOUT_MS = 20_000;
 
@@ -489,6 +490,20 @@ async function tryAshby(boardNames, companyName) {
   return [];
 }
 
+// Try a list of factory functions in order, returning the first non-empty
+// result. Used for companies whose ATS isn't stable (Greenhouse → Ashby → Lever).
+async function firstNonEmpty(attempts) {
+  for (const attempt of attempts) {
+    try {
+      const jobs = await attempt();
+      if (jobs.length > 0) return jobs;
+    } catch {
+      // try next
+    }
+  }
+  return [];
+}
+
 // ---------- Greenhouse (Canva, Atlan, Anthropic) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
@@ -538,24 +553,39 @@ async function microsoft() {
 }
 
 // ---------- Google ----------
+// The public www.google.com/about/careers page returns HTML; the real
+// JSON API lives on careers.google.com under /api/v3/search. It accepts
+// q, page (1-indexed) and page_size, and returns { jobs: [...] }.
 async function google() {
   const out = [];
   for (let p = 1; p <= 5; p++) {
     let data;
     try {
       data = await jget(
-        `https://www.google.com/about/careers/applications/jobs/results?q=%22product+manager%22&page=${p}&sort_by=date`,
+        `https://careers.google.com/api/v3/search/?q=%22product+manager%22&page=${p}&page_size=100&sort_by=date`,
       );
     } catch (e) {
-      if (p === 1) throw e;
-      break;
+      // Fall back to the legacy path on the first error.
+      if (p === 1) {
+        try {
+          data = await jget(
+            `https://www.google.com/about/careers/applications/jobs/results/?q=%22product+manager%22&page=${p}&format=json`,
+          );
+        } catch {
+          throw e;
+        }
+      } else {
+        break;
+      }
     }
-    const jobs = data?.jobs || [];
+    const jobs = data?.jobs || data?.results || [];
     if (jobs.length === 0) break;
     for (const j of jobs) {
-      const id = j.id || j.job_id;
+      const id = j.id || j.job_id || j.uuid;
       const locations = (j.locations || j.cities || [])
-        .map((l) => (typeof l === 'string' ? l : l.display || `${l.city || ''} ${l.country || ''}`))
+        .map((l) =>
+          typeof l === 'string' ? l : l.display || `${l.city || ''} ${l.country || ''}`,
+        )
         .filter(Boolean)
         .join('; ');
       out.push({
@@ -566,10 +596,11 @@ async function google() {
         url:
           j.apply_url ||
           j.url ||
-          `https://www.google.com/about/careers/applications/jobs/results/${id}`,
+          (id ? `https://www.google.com/about/careers/applications/jobs/results/${id}` : ''),
         posted_at: j.publish_date || j.created || j.modified || null,
       });
     }
+    if (jobs.length < 100) break;
   }
   return out;
 }
@@ -736,12 +767,24 @@ const SOURCES = [
   ['Microsoft',  () => microsoft()],
   ['Meta',       () => meta()],
   ['Uber',       () => uber()],
-  ['Canva',      () => greenhouse('canva', 'Canva')],
+  ['Canva',      () => firstNonEmpty([
+                     () => greenhouse('canva', 'Canva'),
+                     () => ashby('canva', 'Canva'),
+                     () => lever('canva', 'Canva'),
+                   ])],
   ['Databricks', () => databricks()],
   ['Snowflake',  () => snowflake()],
-  ['Atlan',      () => greenhouse('atlan', 'Atlan')],
+  ['Atlan',      () => firstNonEmpty([
+                     () => greenhouse('atlan', 'Atlan'),
+                     () => ashby('atlan', 'Atlan'),
+                     () => lever('atlan', 'Atlan'),
+                   ])],
   ['Grab',       () => grab()],
-  ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
+  ['Salesforce', () => firstNonEmpty([
+                     () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce'),
+                     () => workday('salesforce.wd1.myworkdayjobs.com',  'salesforce/External_Career_Site', 'Salesforce'),
+                     () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External', 'Salesforce'),
+                   ])],
   ['Amazon',     () => amazon()],
   ['Anthropic',  () => greenhouse('anthropic', 'Anthropic')],
   ['OpenAI',     () => tryAshby(['openai'], 'OpenAI')],
