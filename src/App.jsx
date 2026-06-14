@@ -17,6 +17,9 @@ const COMPANIES = [
   'Grab',
   'Salesforce',
   'Amazon',
+  'Anthropic',
+  'OpenAI',
+  'Mistral',
 ];
 
 function formatDate(iso) {

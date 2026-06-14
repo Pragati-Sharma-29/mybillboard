@@ -434,7 +434,41 @@ async function snowflake() {
   return [...out.values()];
 }
 
-// ---------- Greenhouse (Canva, Atlan) ----------
+// ---------- Ashby (OpenAI, Mistral, and other AI labs) ----------
+async function ashby(boardName, companyName) {
+  const data = await jget(
+    `https://api.ashbyhq.com/posting-api/job-board/${encodeURIComponent(boardName)}?includeCompensation=false`,
+  );
+  return (data.jobs || []).map((j) => {
+    const locs = [j.location, ...(j.secondaryLocations || []).map((l) =>
+      typeof l === 'string' ? l : l.location || l.locationName || '',
+    )]
+      .filter(Boolean)
+      .filter((v, i, a) => a.indexOf(v) === i);
+    return {
+      id: `ashby-${boardName}-${j.id}`,
+      company: companyName,
+      title: j.title,
+      location: j.isRemote ? `${locs.join('; ')} (Remote)` : locs.join('; '),
+      url: j.jobUrl || j.applicationUrl || '',
+      posted_at: j.publishedAt || null,
+    };
+  });
+}
+
+async function tryAshby(boardNames, companyName) {
+  for (const name of boardNames) {
+    try {
+      const jobs = await ashby(name, companyName);
+      if (jobs.length > 0) return jobs;
+    } catch {
+      // try next
+    }
+  }
+  return [];
+}
+
+// ---------- Greenhouse (Canva, Atlan, Anthropic) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
     `https://boards-api.greenhouse.io/v1/boards/${boardToken}/jobs?content=false`,
@@ -688,6 +722,9 @@ const SOURCES = [
   ['Grab',       () => grab()],
   ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
   ['Amazon',     () => amazon()],
+  ['Anthropic',  () => greenhouse('anthropic', 'Anthropic')],
+  ['OpenAI',     () => tryAshby(['openai'], 'OpenAI')],
+  ['Mistral',    () => tryAshby(['mistral', 'mistralai', 'Mistral', 'MistralAI', 'mistral-ai'], 'Mistral')],
 ];
 
 async function main() {

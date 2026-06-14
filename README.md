@@ -2,7 +2,7 @@
 
 A daily-refreshed job board for **Product Manager** roles across **EMEA, India, Singapore, Dubai, and USA**, pulled from top firms:
 
-Google · Microsoft · Meta · Uber · Canva · Databricks · Snowflake · Atlan · Grab · Salesforce · Amazon / AWS
+Google · Microsoft · Meta · Uber · Canva · Databricks · Snowflake · Atlan · Grab · Salesforce · Amazon / AWS · Anthropic · OpenAI · Mistral
 
 Roles older than 60 days are filtered out.
 
