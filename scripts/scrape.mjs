@@ -130,7 +130,366 @@ async function jpost(url, body, extraHeaders = {}) {
   }, REQUEST_TIMEOUT_MS);
 }
 
-// ---------- Greenhouse (Canva, Databricks, Snowflake, Atlan, Grab) ----------
+// ---------- Grab (grab.careers — Phenom / Next.js portal) ----------
+// Their listings live at www.grab.careers/en/jobs/?search=...&country=...
+// The page hydrates from a __NEXT_DATA__ JSON island; we also fall back
+// to JSON-LD JobPosting blocks and to a couple of plausible JSON APIs.
+async function fetchText(url, headers = {}) {
+  return withTimeout(async (signal) => {
+    const r = await fetch(url, {
+      signal,
+      headers: {
+        'User-Agent': UA,
+        Accept: 'text/html,application/xhtml+xml,application/json',
+        ...headers,
+      },
+    });
+    if (!r.ok) throw new Error(`${r.status} ${url}`);
+    return r.text();
+  }, REQUEST_TIMEOUT_MS);
+}
+
+function walkForJobs(node, push) {
+  if (!node || typeof node !== 'object') return;
+  if (Array.isArray(node)) {
+    for (const item of node) walkForJobs(item, push);
+    return;
+  }
+  const t = node.title || node.jobTitle || node.name;
+  const loc =
+    node.location ||
+    node.jobLocation ||
+    node.primaryLocation ||
+    (Array.isArray(node.locations) ? node.locations.join(', ') : null);
+  const id = node.id || node.jobId || node.reqId || node.requisitionId;
+  const url = node.url || node.applyUrl || node.jobUrl || node.link;
+  const looksLikeJob =
+    t &&
+    typeof t === 'string' &&
+    (id || url) &&
+    /product\s+manager|head of product|director.*product|product lead/i.test(t);
+  if (looksLikeJob) push({ title: t, location: loc, id, url, node });
+  for (const v of Object.values(node)) walkForJobs(v, push);
+}
+
+async function grab() {
+  const out = new Map(); // dedupe by url
+  // Several search variants — Singapore + India + EMEA + Dubai + US.
+  const pageUrls = [
+    'https://www.grab.careers/en/jobs/?search=Product+Manager&country=Singapore&pagesize=100',
+    'https://www.grab.careers/en/jobs/?search=Product+Manager&pagesize=100',
+    'https://www.grab.careers/en/jobs/?search=Senior+Product+Manager&pagesize=100',
+  ];
+
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+
+    // 1. __NEXT_DATA__ JSON island (Next.js / Phenom)
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (next) {
+      try {
+        const root = JSON.parse(next[1]);
+        walkForJobs(root, (j) => {
+          const id = j.id || j.url;
+          const jobUrl =
+            j.url && /^https?:/.test(j.url)
+              ? j.url
+              : j.id
+                ? `https://www.grab.careers/en/jobs/${j.id}/`
+                : null;
+          if (!jobUrl) return;
+          out.set(jobUrl, {
+            id: `grab-${id}`,
+            company: 'Grab',
+            title: j.title,
+            location:
+              typeof j.location === 'string'
+                ? j.location
+                : j.location?.city ||
+                  j.location?.name ||
+                  j.node?.city ||
+                  j.node?.country ||
+                  '',
+            url: jobUrl,
+            posted_at: j.node?.postedDate || j.node?.updatedAt || j.node?.createdAt || null,
+          });
+        });
+      } catch {
+        // fall through
+      }
+    }
+
+    // 2. JSON-LD JobPosting fallback
+    const ldMatches = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)];
+    for (const m of ldMatches) {
+      try {
+        const obj = JSON.parse(m[1]);
+        const arr = Array.isArray(obj) ? obj : [obj];
+        for (const entry of arr) {
+          if (entry['@type'] !== 'JobPosting' && entry['@type'] !== 'JobPosting'.toLowerCase()) continue;
+          const loc =
+            entry.jobLocation?.address?.addressLocality ||
+            entry.jobLocation?.address?.addressCountry ||
+            (Array.isArray(entry.jobLocation)
+              ? entry.jobLocation
+                  .map((l) => l.address?.addressLocality)
+                  .filter(Boolean)
+                  .join(', ')
+              : '');
+          const u = entry.url || entry.identifier?.value;
+          if (!u || !entry.title) continue;
+          out.set(u, {
+            id: `grab-${entry.identifier?.value || u}`,
+            company: 'Grab',
+            title: entry.title,
+            location: loc,
+            url: u,
+            posted_at: entry.datePosted || null,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  return [...out.values()];
+}
+
+// ---------- Databricks (Greenhouse + databricks.com merge) ----------
+// Greenhouse is the upstream that databricks.com queries, but the user
+// flagged seeing roles on databricks.com — scrape both and dedupe so we
+// catch anything published outside the Greenhouse feed.
+async function databricksWebsite() {
+  const out = new Map();
+  const pageUrls = [
+    'https://www.databricks.com/company/careers/open-positions?department=Product',
+    'https://www.databricks.com/company/careers/open-positions?department=Product&location=EMEA',
+    'https://www.databricks.com/company/careers/open-positions?department=Product&location=APAC',
+  ];
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (!next) continue;
+    let root;
+    try {
+      root = JSON.parse(next[1]);
+    } catch {
+      continue;
+    }
+    walkForJobs(root, (j) => {
+      const id = j.id || j.url;
+      const jobUrl =
+        j.url && /^https?:/.test(j.url)
+          ? j.url
+          : j.node?.absolute_url || (j.id ? `https://www.databricks.com/company/careers/${j.id}` : null);
+      if (!jobUrl) return;
+      out.set(jobUrl, {
+        id: `db-web-${id}`,
+        company: 'Databricks',
+        title: j.title,
+        location:
+          typeof j.location === 'string'
+            ? j.location
+            : j.location?.name || j.location?.city || j.node?.location?.name || '',
+        url: jobUrl,
+        posted_at: j.node?.updated_at || j.node?.first_published || null,
+      });
+    });
+  }
+  return [...out.values()];
+}
+
+async function databricks() {
+  const results = await Promise.allSettled([
+    greenhouse('databricks', 'Databricks'),
+    databricksWebsite(),
+  ]);
+  const seen = new Map();
+  for (const r of results) {
+    if (r.status !== 'fulfilled') continue;
+    for (const j of r.value) {
+      const key = j.url || j.id;
+      if (!seen.has(key)) seen.set(key, j);
+    }
+  }
+  return [...seen.values()];
+}
+
+// ---------- Snowflake (careers.snowflake.com — Phenom portal) ----------
+async function snowflake() {
+  const out = new Map();
+  const pageUrls = [
+    'https://careers.snowflake.com/us/en/search-results?keywords=Product+Manager',
+    'https://careers.snowflake.com/us/en/search-results?keywords=Senior+Product+Manager',
+    'https://careers.snowflake.com/us/en/search-results?keywords=Head+of+Product',
+  ];
+
+  for (const url of pageUrls) {
+    let html;
+    try {
+      html = await fetchText(url);
+    } catch {
+      continue;
+    }
+
+    // __NEXT_DATA__ / inline state JSON
+    const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+    if (next) {
+      try {
+        const root = JSON.parse(next[1]);
+        walkForJobs(root, (j) => {
+          const id = j.id || j.url;
+          const jobUrl =
+            j.url && /^https?:/.test(j.url)
+              ? j.url
+              : j.id
+                ? `https://careers.snowflake.com/us/en/job/${j.id}`
+                : null;
+          if (!jobUrl) return;
+          out.set(jobUrl, {
+            id: `snowflake-${id}`,
+            company: 'Snowflake',
+            title: j.title,
+            location:
+              typeof j.location === 'string'
+                ? j.location
+                : j.location?.city || j.location?.name || j.node?.city || '',
+            url: jobUrl,
+            posted_at: j.node?.postedDate || j.node?.updatedAt || null,
+          });
+        });
+      } catch {
+        // fall through
+      }
+    }
+
+    // JSON-LD JobPosting
+    const ldMatches = [...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g)];
+    for (const m of ldMatches) {
+      try {
+        const obj = JSON.parse(m[1]);
+        const arr = Array.isArray(obj) ? obj : [obj];
+        for (const entry of arr) {
+          if (entry['@type'] !== 'JobPosting') continue;
+          const loc =
+            entry.jobLocation?.address?.addressLocality ||
+            entry.jobLocation?.address?.addressCountry ||
+            (Array.isArray(entry.jobLocation)
+              ? entry.jobLocation
+                  .map((l) => l.address?.addressLocality)
+                  .filter(Boolean)
+                  .join(', ')
+              : '');
+          const u = entry.url || entry.identifier?.value;
+          if (!u || !entry.title) continue;
+          out.set(u, {
+            id: `snowflake-${entry.identifier?.value || u}`,
+            company: 'Snowflake',
+            title: entry.title,
+            location: loc,
+            url: u,
+            posted_at: entry.datePosted || null,
+          });
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  // Phenom widgets API as a third attempt — best-effort, may 404.
+  try {
+    const data = await jget(
+      'https://careers.snowflake.com/widgets/jobs/?keyword=Product&pageSize=100',
+    );
+    const list = data?.jobs || data?.refNum || data?.content || [];
+    for (const j of Array.isArray(list) ? list : []) {
+      const t = j.title || j.jobTitle;
+      const u = j.url || j.applyUrl || (j.id && `https://careers.snowflake.com/us/en/job/${j.id}`);
+      if (!t || !u) continue;
+      out.set(u, {
+        id: `snowflake-w-${j.id || u}`,
+        company: 'Snowflake',
+        title: t,
+        location: j.location || j.city || '',
+        url: u,
+        posted_at: j.postedDate || j.updatedAt || null,
+      });
+    }
+  } catch {
+    // ignore
+  }
+
+  return [...out.values()];
+}
+
+// ---------- Lever (Mistral) ----------
+async function lever(companyToken, companyName) {
+  const data = await jget(
+    `https://api.lever.co/v0/postings/${encodeURIComponent(companyToken)}?mode=json`,
+  );
+  return (Array.isArray(data) ? data : []).map((j) => {
+    const cats = j.categories || {};
+    const allLocs = [cats.location, ...(cats.allLocations || [])]
+      .filter(Boolean)
+      .filter((v, i, a) => a.indexOf(v) === i);
+    return {
+      id: `lever-${companyToken}-${j.id}`,
+      company: companyName,
+      title: j.text,
+      location: allLocs.join('; '),
+      url: j.hostedUrl || j.applyUrl,
+      posted_at: j.createdAt ? new Date(j.createdAt).toISOString() : null,
+    };
+  });
+}
+
+// ---------- Ashby (OpenAI, and other AI labs) ----------
+async function ashby(boardName, companyName) {
+  const data = await jget(
+    `https://api.ashbyhq.com/posting-api/job-board/${encodeURIComponent(boardName)}?includeCompensation=false`,
+  );
+  return (data.jobs || []).map((j) => {
+    const locs = [j.location, ...(j.secondaryLocations || []).map((l) =>
+      typeof l === 'string' ? l : l.location || l.locationName || '',
+    )]
+      .filter(Boolean)
+      .filter((v, i, a) => a.indexOf(v) === i);
+    return {
+      id: `ashby-${boardName}-${j.id}`,
+      company: companyName,
+      title: j.title,
+      location: j.isRemote ? `${locs.join('; ')} (Remote)` : locs.join('; '),
+      url: j.jobUrl || j.applicationUrl || '',
+      posted_at: j.publishedAt || null,
+    };
+  });
+}
+
+async function tryAshby(boardNames, companyName) {
+  for (const name of boardNames) {
+    try {
+      const jobs = await ashby(name, companyName);
+      if (jobs.length > 0) return jobs;
+    } catch {
+      // try next
+    }
+  }
+  return [];
+}
+
+// ---------- Greenhouse (Canva, Atlan, Anthropic) ----------
 async function greenhouse(boardToken, company) {
   const data = await jget(
     `https://boards-api.greenhouse.io/v1/boards/${boardToken}/jobs?content=false`,
@@ -378,12 +737,15 @@ const SOURCES = [
   ['Meta',       () => meta()],
   ['Uber',       () => uber()],
   ['Canva',      () => greenhouse('canva', 'Canva')],
-  ['Databricks', () => greenhouse('databricks', 'Databricks')],
-  ['Snowflake',  () => greenhouse('snowflake', 'Snowflake')],
+  ['Databricks', () => databricks()],
+  ['Snowflake',  () => snowflake()],
   ['Atlan',      () => greenhouse('atlan', 'Atlan')],
-  ['Grab',       () => greenhouse('grab', 'Grab')],
+  ['Grab',       () => grab()],
   ['Salesforce', () => workday('salesforce.wd12.myworkdayjobs.com', 'salesforce/External_Career_Site', 'Salesforce')],
   ['Amazon',     () => amazon()],
+  ['Anthropic',  () => greenhouse('anthropic', 'Anthropic')],
+  ['OpenAI',     () => tryAshby(['openai'], 'OpenAI')],
+  ['Mistral',    () => lever('mistral', 'Mistral')],
 ];
 
 async function main() {

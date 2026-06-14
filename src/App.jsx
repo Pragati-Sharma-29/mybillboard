@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
+import { computeMatch, MATCH_THRESHOLD } from './matchProfile.js';
 
-const REGIONS = ['EMEA', 'India', 'Singapore', 'Dubai', 'USA'];
+const REGION_TABS = ['EMEA', 'India', 'Singapore', 'Dubai', 'USA'];
+const MATCH_TAB = "It's a Match!";
+const TABS = [MATCH_TAB, ...REGION_TABS];
+
 const COMPANIES = [
   'Google',
   'Microsoft',
@@ -13,6 +17,9 @@ const COMPANIES = [
   'Grab',
   'Salesforce',
   'Amazon',
+  'Anthropic',
+  'OpenAI',
+  'Mistral',
 ];
 
 function formatDate(iso) {
@@ -30,7 +37,7 @@ function formatDate(iso) {
 export default function App() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
-  const [region, setRegion] = useState('EMEA');
+  const [tab, setTab] = useState(MATCH_TAB);
   const [query, setQuery] = useState('');
   const [activeCompanies, setActiveCompanies] = useState(new Set());
 
@@ -45,25 +52,40 @@ export default function App() {
       .catch((e) => setError(e.message));
   }, []);
 
-  const jobs = data?.jobs ?? [];
+  const scoredJobs = useMemo(() => {
+    const jobs = data?.jobs ?? [];
+    return jobs.map((j) => ({ ...j, ...computeMatch(j) }));
+  }, [data]);
 
   const counts = useMemo(() => {
-    const out = {};
-    for (const r of REGIONS) out[r] = 0;
-    for (const j of jobs) {
+    const out = { [MATCH_TAB]: 0 };
+    for (const r of REGION_TABS) out[r] = 0;
+    for (const j of scoredJobs) {
       if (out[j.region] !== undefined) out[j.region] += 1;
+      if (j.score >= MATCH_THRESHOLD) out[MATCH_TAB] += 1;
     }
     return out;
-  }, [jobs]);
+  }, [scoredJobs]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return jobs
-      .filter((j) => j.region === region)
+    let pool;
+    if (tab === MATCH_TAB) {
+      pool = scoredJobs.filter((j) => j.score >= MATCH_THRESHOLD);
+    } else {
+      pool = scoredJobs.filter((j) => j.region === tab);
+    }
+    return pool
       .filter((j) => (activeCompanies.size === 0 ? true : activeCompanies.has(j.company)))
-      .filter((j) => (q ? `${j.title} ${j.location} ${j.company}`.toLowerCase().includes(q) : true))
-      .sort((a, b) => new Date(b.posted_at || 0) - new Date(a.posted_at || 0));
-  }, [jobs, region, activeCompanies, query]);
+      .filter((j) =>
+        q ? `${j.title} ${j.location} ${j.company}`.toLowerCase().includes(q) : true,
+      )
+      .sort((a, b) => {
+        if (tab === MATCH_TAB) return b.score - a.score;
+        return new Date(b.posted_at || 0) - new Date(a.posted_at || 0);
+      })
+      .slice(0, tab === MATCH_TAB ? 60 : 1000);
+  }, [scoredJobs, tab, activeCompanies, query]);
 
   function toggleCompany(c) {
     setActiveCompanies((prev) => {
@@ -73,6 +95,8 @@ export default function App() {
       return next;
     });
   }
+
+  const isMatchTab = tab === MATCH_TAB;
 
   return (
     <div className="container">
@@ -91,17 +115,25 @@ export default function App() {
       </div>
 
       <div className="tabs">
-        {REGIONS.map((r) => (
+        {TABS.map((t) => (
           <button
-            key={r}
-            className={`tab ${region === r ? 'active' : ''}`}
-            onClick={() => setRegion(r)}
+            key={t}
+            className={`tab ${tab === t ? 'active' : ''} ${t === MATCH_TAB ? 'tab-match' : ''}`}
+            onClick={() => setTab(t)}
           >
-            {r}
-            <span className="count">({counts[r] ?? 0})</span>
+            {t}
+            <span className="count">({counts[t] ?? 0})</span>
           </button>
         ))}
       </div>
+
+      {isMatchTab && (
+        <div className="match-banner">
+          Ranked against Pragati's resume — Senior/Lead/Group/Staff PM roles in data
+          governance, AI platforms, ML/agentic systems, and search. Top 60 shown,
+          sorted by match score.
+        </div>
+      )}
 
       <div className="toolbar">
         <input
@@ -132,7 +164,9 @@ export default function App() {
 
       {!error && data && filtered.length === 0 && (
         <div className="empty">
-          No PM roles found for <strong>{region}</strong> with the current filters.
+          {isMatchTab
+            ? 'No matching roles cleared the threshold today — try widening the filters or check again tomorrow.'
+            : `No PM roles found for ${tab} with the current filters.`}
         </div>
       )}
 
@@ -149,7 +183,22 @@ export default function App() {
                 <span className="tag company">{j.company}</span>
                 <span>{j.location}</span>
                 {j.posted_at && <span>• {formatDate(j.posted_at)}</span>}
+                {!isMatchTab && <span className="tag tag-region">{j.region}</span>}
+                {isMatchTab && (
+                  <span className="tag tag-score" title={`Score ${j.score}`}>
+                    {scoreLabel(j.score)} · {j.score}
+                  </span>
+                )}
               </div>
+              {isMatchTab && j.matched && j.matched.length > 0 && (
+                <div className="match-keywords">
+                  {j.matched.map((kw) => (
+                    <span key={kw} className="kw">
+                      {kw}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
             <a className="apply" href={j.url} target="_blank" rel="noopener noreferrer">
               View role →
@@ -164,4 +213,11 @@ export default function App() {
       </div>
     </div>
   );
+}
+
+function scoreLabel(score) {
+  if (score >= 90) return 'strong match';
+  if (score >= 70) return 'great match';
+  if (score >= 55) return 'good match';
+  return 'match';
 }

@@ -33,6 +33,19 @@ jobs:
         run: npm run scrape
         continue-on-error: true
 
+      - name: WhatsApp digest (top 5)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: npm run notify
+        continue-on-error: true
+        env:
+          CALLMEBOT_PHONE: ${{ secrets.CALLMEBOT_PHONE }}
+          CALLMEBOT_APIKEY: ${{ secrets.CALLMEBOT_APIKEY }}
+          WHATSAPP_TOKEN: ${{ secrets.WHATSAPP_TOKEN }}
+          WHATSAPP_PHONE_ID: ${{ secrets.WHATSAPP_PHONE_ID }}
+          WHATSAPP_TO: ${{ secrets.WHATSAPP_TO }}
+          WHATSAPP_TEMPLATE: ${{ secrets.WHATSAPP_TEMPLATE }}
+          SITE_URL: ${{ secrets.SITE_URL }}
+
       - name: Commit refreshed jobs.json
         if: github.ref == 'refs/heads/main' && github.event_name != 'push'
         run: |
