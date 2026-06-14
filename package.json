@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "scrape": "node scripts/scrape.mjs"
+    "scrape": "node scripts/scrape.mjs",
+    "notify": "node scripts/notify.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
