@@ -434,7 +434,28 @@ async function snowflake() {
   return [...out.values()];
 }
 
-// ---------- Ashby (OpenAI, Mistral, and other AI labs) ----------
+// ---------- Lever (Mistral) ----------
+async function lever(companyToken, companyName) {
+  const data = await jget(
+    `https://api.lever.co/v0/postings/${encodeURIComponent(companyToken)}?mode=json`,
+  );
+  return (Array.isArray(data) ? data : []).map((j) => {
+    const cats = j.categories || {};
+    const allLocs = [cats.location, ...(cats.allLocations || [])]
+      .filter(Boolean)
+      .filter((v, i, a) => a.indexOf(v) === i);
+    return {
+      id: `lever-${companyToken}-${j.id}`,
+      company: companyName,
+      title: j.text,
+      location: allLocs.join('; '),
+      url: j.hostedUrl || j.applyUrl,
+      posted_at: j.createdAt ? new Date(j.createdAt).toISOString() : null,
+    };
+  });
+}
+
+// ---------- Ashby (OpenAI, and other AI labs) ----------
 async function ashby(boardName, companyName) {
   const data = await jget(
     `https://api.ashbyhq.com/posting-api/job-board/${encodeURIComponent(boardName)}?includeCompensation=false`,
@@ -724,7 +745,7 @@ const SOURCES = [
   ['Amazon',     () => amazon()],
   ['Anthropic',  () => greenhouse('anthropic', 'Anthropic')],
   ['OpenAI',     () => tryAshby(['openai'], 'OpenAI')],
-  ['Mistral',    () => tryAshby(['mistral', 'mistralai', 'Mistral', 'MistralAI', 'mistral-ai'], 'Mistral')],
+  ['Mistral',    () => lever('mistral', 'Mistral')],
 ];
 
 async function main() {
