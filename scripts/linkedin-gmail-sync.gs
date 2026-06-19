@@ -174,7 +174,7 @@ function parseEmail(message) {
 
     let company = '';
     let location = '';
-    const noise = /^(view (job|all)|apply|easy apply|promoted|early applicant|hours? ago|days? ago|weeks? ago|months? ago|posted|new|\d+\+?\s+applicants?|see (all|jobs|more)|matches|recommend(ed|ation)s?|because you|linkedin)/i;
+    const noise = /^(view (job|all)|apply|easy apply|promoted|early applicant|hours? ago|days? ago|weeks? ago|months? ago|posted|new|\d+\+?\s+applicants?|see (all|jobs|more)|matches|recommend(ed|ation)s?|because you|linkedin|actively recruiting|\d[\d,]*\s+company alumni)/i;
     let pastTitle = false;
     const titleStart = title.substring(0, Math.min(15, title.length)).toLowerCase();
     for (const line of lines) {
@@ -183,7 +183,19 @@ function parseEmail(message) {
         continue;
       }
       if (noise.test(line)) continue;
-      if (line.length > 120) continue;
+      if (line.length > 200) continue;
+
+      // LinkedIn alert emails render "Company · Location" on a single
+      // line, separated by U+00B7 middle dot. Detect and split.
+      const dotIdx = line.indexOf('·');
+      if (dotIdx > 0 && dotIdx < line.length - 1) {
+        company = clean(line.substring(0, dotIdx));
+        location = clean(line.substring(dotIdx + 1));
+        break;
+      }
+
+      // Fall back to two-line layout (older email format or alternative
+      // alert types where company and location are on separate lines).
       if (!company) {
         company = line;
         continue;
