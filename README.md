@@ -73,6 +73,14 @@ If both providers are configured, Cloud API wins.
 
 If neither is configured, the notify step exits 0 silently — the workflow still deploys the site.
 
+## LinkedIn job alerts as a source
+
+LinkedIn doesn't expose a scrape-friendly API, but their daily job-alert emails are perfect raw material. We pipe them into the board via a Google Apps Script that reads your Gmail and pushes parsed jobs to `data/linkedin.json`. The main scraper picks them up the same way it picks up Greenhouse/Lever.
+
+**One-time setup is in `scripts/linkedin-gmail-sync.gs`** — paste that file into `script.google.com`, set three script properties (`GITHUB_OWNER`, `GITHUB_REPO`, `GITHUB_TOKEN`), run once to grant Gmail+UrlFetch permissions, schedule a daily trigger. Full step-by-step is in the file's header comment.
+
+Once running, LinkedIn alerts flow into the same pipeline — same PM filter, same region tabs, same **It's a Match!** scoring, same WhatsApp digest.
+
 ## Adding a new company without writing code
 
 Drop an entry into `sources.json`:

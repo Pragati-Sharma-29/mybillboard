@@ -817,7 +817,24 @@ const SOURCES = [
   ['Anthropic',  () => greenhouse('anthropic', 'Anthropic')],
   ['OpenAI',     () => tryAshby(['openai'], 'OpenAI')],
   ['Mistral',    () => lever('mistral', 'Mistral')],
+  // Synced from LinkedIn job alert emails via the Apps Script in
+  // scripts/linkedin-gmail-sync.gs. See README for setup.
+  ['LinkedIn',   () => loadLinkedInJobs()],
 ];
+
+async function loadLinkedInJobs() {
+  const path = resolve(__dirname, '..', 'data', 'linkedin.json');
+  try {
+    const raw = await readFile(path, 'utf8');
+    const json = JSON.parse(raw);
+    const jobs = Array.isArray(json.jobs) ? json.jobs : [];
+    // Tag each so we can render a small "via LinkedIn alerts" badge later
+    // if we want, and preserve the original company name from the email.
+    return jobs.map((j) => ({ ...j, source: 'linkedin' }));
+  } catch {
+    return [];
+  }
+}
 
 // ---------- Auto-detect ATS from URL (drives sources.json) ----------
 // Given a careers URL, pick the right helper and call it. Users edit
