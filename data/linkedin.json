@@ -1,0 +1,5 @@
+{
+  "_note": "Synced from LinkedIn job alert emails by scripts/linkedin-gmail-sync.gs (Google Apps Script). The scraper merges this with the other sources. Safe to delete entries here; the next sync will add them back if the alert email is still in Gmail.",
+  "generated_at": null,
+  "jobs": []
+}
