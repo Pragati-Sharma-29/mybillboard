@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-19T18:59:31.014Z",
+  "generated_at": "2026-06-19T19:28:39.936Z",
   "counts": {
     "EMEA": 34,
-    "USA": 265,
+    "USA": 266,
     "India": 41,
     "Dubai": 2
   },
@@ -71,6 +71,15 @@
       "region": "USA"
     },
     {
+      "id": "amz-10454197",
+      "company": "Amazon",
+      "title": "Senior Product Manager Technical - External Services, AWS Edge Data Services",
+      "location": "Santa Clara, California, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10454197/senior-product-manager-technical-external-services-aws-edge-data-services",
+      "posted_at": "June 19, 2026",
+      "region": "USA"
+    },
+    {
       "id": "amz-10454145",
       "company": "Amazon",
       "title": "Senior Product Manager - Technical, Amazon Elastic Block Store (EBS) ",
@@ -85,6 +94,15 @@
       "title": "Senior Product Manager - Technical, Amazon Elastic Block Store (EBS) ",
       "location": "Seattle, Washington, USA",
       "url": "https://www.amazon.jobs/en/jobs/10454147/senior-product-manager-technical-amazon-elastic-block-store-ebs",
+      "posted_at": "June 19, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10454189",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Amazon Elastic Block Store (EBS) ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10454189/senior-product-manager-technical-amazon-elastic-block-store-ebs",
       "posted_at": "June 19, 2026",
       "region": "USA"
     },
@@ -431,15 +449,6 @@
       "region": "USA"
     },
     {
-      "id": "gh-databricks-7680573002",
-      "company": "Databricks",
-      "title": "Sr. Product Manager, Databricks Free Edition",
-      "location": "San Francisco, California",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7680573002",
-      "posted_at": "2026-06-15T18:30:50-04:00",
-      "region": "USA"
-    },
-    {
       "id": "gh-databricks-8235785002",
       "company": "Databricks",
       "title": "Sr. Product Manager, Databricks Free Edition",
@@ -449,11 +458,11 @@
       "region": "USA"
     },
     {
-      "id": "gh-databricks-8326570002",
+      "id": "gh-databricks-7680573002",
       "company": "Databricks",
-      "title": "Sr. Product Manager, Databricks Repos",
-      "location": "Seattle, Washington",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8326570002",
+      "title": "Sr. Product Manager, Databricks Free Edition",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7680573002",
       "posted_at": "2026-06-15T18:30:50-04:00",
       "region": "USA"
     },
@@ -463,6 +472,15 @@
       "title": "Sr. Product Manager, Databricks Repos",
       "location": "San Francisco, California",
       "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8326513002",
+      "posted_at": "2026-06-15T18:30:50-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8326570002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, Databricks Repos",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8326570002",
       "posted_at": "2026-06-15T18:30:50-04:00",
       "region": "USA"
     },
@@ -494,20 +512,20 @@
       "region": "USA"
     },
     {
-      "id": "gh-databricks-7929994002",
-      "company": "Databricks",
-      "title": "Sr. Product Manager, DBSQL",
-      "location": "Seattle, Washington",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7929994002",
-      "posted_at": "2026-06-15T18:30:50-04:00",
-      "region": "USA"
-    },
-    {
       "id": "gh-databricks-7924423002",
       "company": "Databricks",
       "title": "Sr. Product Manager, DBSQL",
       "location": "San Francisco, California",
       "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7924423002",
+      "posted_at": "2026-06-15T18:30:50-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-7929994002",
+      "company": "Databricks",
+      "title": "Sr. Product Manager, DBSQL",
+      "location": "Seattle, Washington",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=7929994002",
       "posted_at": "2026-06-15T18:30:50-04:00",
       "region": "USA"
     },
@@ -548,20 +566,20 @@
       "region": "EMEA"
     },
     {
-      "id": "gh-databricks-8420609002",
-      "company": "Databricks",
-      "title": "Staff Product Manager, AI Platform",
-      "location": "San Francisco, California",
-      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8420609002",
-      "posted_at": "2026-06-15T18:30:50-04:00",
-      "region": "USA"
-    },
-    {
       "id": "gh-databricks-8427940002",
       "company": "Databricks",
       "title": "Staff Product Manager, AI Platform",
       "location": "Seattle, Washington",
       "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8427940002",
+      "posted_at": "2026-06-15T18:30:50-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "gh-databricks-8420609002",
+      "company": "Databricks",
+      "title": "Staff Product Manager, AI Platform",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8420609002",
       "posted_at": "2026-06-15T18:30:50-04:00",
       "region": "USA"
     },
@@ -2087,20 +2105,20 @@
       "region": "USA"
     },
     {
-      "id": "uber-159545",
-      "company": "Uber",
-      "title": "Senior Product Manager — Grocery Fulfillment Optimization.",
-      "location": "New York, United States; Seattle, United States; San Francisco, United States",
-      "url": "https://www.uber.com/global/en/careers/list/159545/",
-      "posted_at": "2026-05-20T18:03:00.000Z",
-      "region": "USA"
-    },
-    {
       "id": "uber-159533",
       "company": "Uber",
       "title": "Group Product Manager, Grocery & Retail Selection",
       "location": "New York, United States; San Francisco, United States",
       "url": "https://www.uber.com/global/en/careers/list/159533/",
+      "posted_at": "2026-05-20T18:03:00.000Z",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159545",
+      "company": "Uber",
+      "title": "Senior Product Manager — Grocery Fulfillment Optimization.",
+      "location": "New York, United States; Seattle, United States; San Francisco, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159545/",
       "posted_at": "2026-05-20T18:03:00.000Z",
       "region": "USA"
     },
@@ -2704,15 +2722,6 @@
       "title": "Sr. Product Manager - Tech (Royalties), Music Royalties",
       "location": "Culver City, California, USA",
       "url": "https://www.amazon.jobs/en/jobs/10411894/sr-product-manager-tech-royalties-music-royalties",
-      "posted_at": "May  5, 2026",
-      "region": "USA"
-    },
-    {
-      "id": "amz-10411892",
-      "company": "Amazon",
-      "title": "Product Manager - Tech (Music Royalties), Music Royalties",
-      "location": "San Francisco, California, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10411892/product-manager-tech-music-royalties-music-royalties",
       "posted_at": "May  5, 2026",
       "region": "USA"
     },
