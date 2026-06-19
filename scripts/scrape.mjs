@@ -5,7 +5,7 @@
 //
 // Sources are best-effort: any failure is logged and skipped, the rest still ship.
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -791,8 +791,197 @@ const SOURCES = [
   ['Mistral',    () => lever('mistral', 'Mistral')],
 ];
 
+// ---------- Auto-detect ATS from URL (drives sources.json) ----------
+// Given a careers URL, pick the right helper and call it. Users edit
+// sources.json without touching code; this function routes for them.
+async function fromUrl(name, url) {
+  let u;
+  try {
+    u = new URL(url);
+  } catch {
+    throw new Error(`bad url: ${url}`);
+  }
+  const host = u.hostname.toLowerCase();
+  const segs = u.pathname.split('/').filter(Boolean);
+
+  // Greenhouse: boards.greenhouse.io/<token> or boards-api.greenhouse.io/v1/boards/<token>
+  if (host.endsWith('greenhouse.io')) {
+    const token = segs[0] === 'v1' && segs[1] === 'boards' ? segs[2] : segs[0];
+    if (!token) throw new Error(`could not extract greenhouse token from ${url}`);
+    return greenhouse(token, name);
+  }
+
+  // Ashby: jobs.ashbyhq.com/<token> or api.ashbyhq.com/posting-api/job-board/<token>
+  if (host.endsWith('ashbyhq.com')) {
+    const token =
+      segs[0] === 'posting-api' && segs[1] === 'job-board' ? segs[2] : segs[0];
+    if (!token) throw new Error(`could not extract ashby token from ${url}`);
+    return ashby(token, name);
+  }
+
+  // Lever: jobs.lever.co/<token> or api.lever.co/v0/postings/<token>
+  if (host.endsWith('lever.co')) {
+    const token = segs[0] === 'v0' && segs[1] === 'postings' ? segs[2] : segs[0];
+    if (!token) throw new Error(`could not extract lever token from ${url}`);
+    return lever(token, name);
+  }
+
+  // SmartRecruiters: jobs.smartrecruiters.com/<token>
+  if (host.endsWith('smartrecruiters.com')) {
+    const token = segs[0];
+    if (!token) throw new Error(`could not extract smartrecruiters token from ${url}`);
+    return smartRecruiters(token, name);
+  }
+
+  // Workday: <tenant>.<region>.myworkdayjobs.com/<locale>/<site>
+  if (host.endsWith('myworkdayjobs.com')) {
+    const tenant = host.split('.')[0];
+    const site =
+      segs.length >= 2 ? `${tenant}/${segs[segs.length - 1]}` : `${tenant}/${segs[0] || ''}`;
+    return workday(host, site, name);
+  }
+
+  // Anything else (company-branded careers domain): generic HTML scrape.
+  return scrapeGenericPage(url, name);
+}
+
+// SmartRecruiters helper — used by fromUrl when the source URL points at
+// jobs.smartrecruiters.com.
+async function smartRecruiters(token, companyName) {
+  const out = [];
+  let offset = 0;
+  for (let i = 0; i < 10; i++) {
+    let data;
+    try {
+      data = await jget(
+        `https://api.smartrecruiters.com/v1/companies/${token}/postings?limit=100&offset=${offset}`,
+      );
+    } catch (e) {
+      if (i === 0) throw e;
+      break;
+    }
+    const postings = data?.content || [];
+    if (postings.length === 0) break;
+    for (const j of postings) {
+      const loc = [j.location?.city, j.location?.region, j.location?.country]
+        .filter(Boolean)
+        .join(', ');
+      out.push({
+        id: `sr-${token}-${j.id}`,
+        company: companyName,
+        title: j.name,
+        location: j.location?.remote ? `${loc} (Remote)` : loc,
+        url: `https://jobs.smartrecruiters.com/${token}/${j.id}`,
+        posted_at: j.releasedDate || j.createdOn || null,
+      });
+    }
+    offset += postings.length;
+    if (postings.length < 100) break;
+  }
+  return out;
+}
+
+// Generic HTML page scrape — looks for __NEXT_DATA__ JSON island and
+// JSON-LD JobPosting blocks. Used as a fallback when the URL hostname
+// isn't a known ATS.
+async function scrapeGenericPage(url, companyName) {
+  const out = new Map();
+  let html;
+  try {
+    html = await fetchText(url);
+  } catch (e) {
+    throw new Error(`fetch failed: ${e.message}`);
+  }
+
+  const next = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/);
+  if (next) {
+    try {
+      const root = JSON.parse(next[1]);
+      walkForJobs(root, (j) => {
+        const id = j.id || j.url;
+        const jobUrl =
+          j.url && /^https?:/.test(j.url)
+            ? j.url
+            : j.id
+              ? new URL(`/jobs/${j.id}`, url).toString()
+              : null;
+        if (!jobUrl) return;
+        out.set(jobUrl, {
+          id: `gen-${companyName}-${id}`,
+          company: companyName,
+          title: j.title,
+          location:
+            typeof j.location === 'string'
+              ? j.location
+              : j.location?.city || j.location?.name || j.node?.city || '',
+          url: jobUrl,
+          posted_at: j.node?.postedDate || j.node?.updatedAt || null,
+        });
+      });
+    } catch {
+      // continue
+    }
+  }
+
+  const ldMatches = [
+    ...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/g),
+  ];
+  for (const m of ldMatches) {
+    try {
+      const obj = JSON.parse(m[1]);
+      const arr = Array.isArray(obj) ? obj : [obj];
+      for (const entry of arr) {
+        if (entry['@type'] !== 'JobPosting') continue;
+        const loc =
+          entry.jobLocation?.address?.addressLocality ||
+          entry.jobLocation?.address?.addressCountry ||
+          (Array.isArray(entry.jobLocation)
+            ? entry.jobLocation
+                .map((l) => l.address?.addressLocality)
+                .filter(Boolean)
+                .join(', ')
+            : '');
+        const u = entry.url || entry.identifier?.value;
+        if (!u || !entry.title) continue;
+        out.set(u, {
+          id: `gen-${companyName}-${entry.identifier?.value || u}`,
+          company: companyName,
+          title: entry.title,
+          location: loc,
+          url: u,
+          posted_at: entry.datePosted || null,
+        });
+      }
+    } catch {
+      // continue
+    }
+  }
+
+  return [...out.values()];
+}
+
+async function loadManualSources() {
+  const path = resolve(__dirname, '..', 'sources.json');
+  try {
+    const raw = await readFile(path, 'utf8');
+    const json = JSON.parse(raw);
+    const list = Array.isArray(json) ? json : json.sources || [];
+    return list.filter((s) => s && s.name && s.url);
+  } catch {
+    return [];
+  }
+}
+
 async function main() {
-  const raw = (await Promise.all(SOURCES.map(([n, fn]) => safe(n, fn)))).flat();
+  const manual = await loadManualSources();
+  const allSources = [
+    ...SOURCES,
+    ...manual.map((s) => [s.name, () => fromUrl(s.name, s.url)]),
+  ];
+  if (manual.length > 0) {
+    console.log(`Loaded ${manual.length} manual source(s) from sources.json`);
+  }
+  const raw = (await Promise.all(allSources.map(([n, fn]) => safe(n, fn)))).flat();
 
   const seen = new Set();
   const jobs = [];
