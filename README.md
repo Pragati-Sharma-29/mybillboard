@@ -73,6 +73,33 @@ If both providers are configured, Cloud API wins.
 
 If neither is configured, the notify step exits 0 silently — the workflow still deploys the site.
 
+## Adding a new company without writing code
+
+Drop an entry into `sources.json`:
+
+```json
+{
+  "sources": [
+    { "name": "Stripe", "url": "https://boards.greenhouse.io/stripe" },
+    { "name": "Some Co", "url": "https://jobs.lever.co/someco" },
+    { "name": "Other", "url": "https://careers.other.com/jobs" }
+  ]
+}
+```
+
+The scraper auto-detects the ATS from the URL hostname:
+
+| If URL contains | Routes to |
+|---|---|
+| `greenhouse.io` | Greenhouse API |
+| `ashbyhq.com` | Ashby API |
+| `lever.co` | Lever API |
+| `smartrecruiters.com` | SmartRecruiters API |
+| `myworkdayjobs.com` | Workday API |
+| anything else | Generic HTML scrape (looks for `__NEXT_DATA__` + JSON-LD `JobPosting`) |
+
+The generic scrape works for any modern careers page that hydrates from `__NEXT_DATA__` or emits JSON-LD. SPAs that load jobs purely via custom XHR after page load will return 0 from the generic path — those need a bespoke parser.
+
 ## Customizing
 
 - **Add a company**: append an entry to `SOURCES` in `scripts/scrape.mjs` and add the name to `COMPANIES` in `src/App.jsx`.

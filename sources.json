@@ -1,0 +1,5 @@
+{
+  "_note": "Add sources here as {\"name\": \"Company\", \"url\": \"...\"}. The scraper auto-detects the ATS (Greenhouse, Ashby, Lever, SmartRecruiters, Workday) from the URL hostname. For company-branded domains (e.g. careers.example.com) it falls back to generic HTML scraping of __NEXT_DATA__ + JSON-LD JobPosting. Re-run scripts/scrape.mjs after editing.",
+  "sources": [
+  ]
+}
