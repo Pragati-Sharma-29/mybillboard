@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-06-19T18:25:39.479Z",
+  "generated_at": "2026-06-19T18:44:59.520Z",
   "counts": {
-    "EMEA": 32,
-    "USA": 256,
+    "EMEA": 34,
+    "USA": 265,
     "India": 41,
     "Dubai": 2
   },
@@ -71,6 +71,24 @@
       "region": "USA"
     },
     {
+      "id": "amz-10454145",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Amazon Elastic Block Store (EBS) ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10454145/senior-product-manager-technical-amazon-elastic-block-store-ebs",
+      "posted_at": "June 19, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10454147",
+      "company": "Amazon",
+      "title": "Senior Product Manager - Technical, Amazon Elastic Block Store (EBS) ",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10454147/senior-product-manager-technical-amazon-elastic-block-store-ebs",
+      "posted_at": "June 19, 2026",
+      "region": "USA"
+    },
+    {
       "id": "amz-10453422",
       "company": "Amazon",
       "title": "Product Manager, Value added services",
@@ -80,12 +98,30 @@
       "region": "India"
     },
     {
+      "id": "gh-anthropic-5205489008",
+      "company": "Anthropic",
+      "title": "Product Finance, Inference Capacity Lead",
+      "location": "San Francisco, CA",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5205489008",
+      "posted_at": "2026-06-18T16:47:33-04:00",
+      "region": "USA"
+    },
+    {
       "id": "gh-anthropic-5153924008",
       "company": "Anthropic",
       "title": "Product Manager, Multi-Cloud Growth - Google",
       "location": "San Francisco, CA",
       "url": "https://job-boards.greenhouse.io/anthropic/jobs/5153924008",
       "posted_at": "2026-06-17T20:34:53-04:00",
+      "region": "USA"
+    },
+    {
+      "id": "uber-159754",
+      "company": "Uber",
+      "title": "Product Counsel, Delivery",
+      "location": "New York, United States; San Francisco, United States; Chicago, United States; Washington, United States",
+      "url": "https://www.uber.com/global/en/careers/list/159754/",
+      "posted_at": "2026-06-18T00:23:00.000Z",
       "region": "USA"
     },
     {
@@ -692,6 +728,15 @@
       "region": "USA"
     },
     {
+      "id": "gh-anthropic-5195866008",
+      "company": "Anthropic",
+      "title": "Product Management, Human Data Platform",
+      "location": "San Francisco, CA | New York City, NY",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5195866008",
+      "posted_at": "2026-06-12T16:02:12-04:00",
+      "region": "USA"
+    },
+    {
       "id": "uber-159221",
       "company": "Uber",
       "title": "Senior Product Manager - Merchant  API Integrations",
@@ -932,6 +977,15 @@
       "location": "Bellevue, Washington, USA",
       "url": "https://www.amazon.jobs/en/jobs/10445453/senior-product-manager-autonomous-vehicle-safety-global-road-safety",
       "posted_at": "June 10, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "ashby-openai-eb14c790-04db-4415-952c-0a237afc90d8",
+      "company": "OpenAI",
+      "title": "Product Engagement Specialist",
+      "location": "San Francisco",
+      "url": "https://jobs.ashbyhq.com/openai/eb14c790-04db-4415-952c-0a237afc90d8",
+      "posted_at": "2026-06-09T22:02:32.656+00:00",
       "region": "USA"
     },
     {
@@ -1439,6 +1493,15 @@
       "region": "USA"
     },
     {
+      "id": "ashby-openai-8b1f58e8-2922-4d55-bce6-04d7b4c5ec21",
+      "company": "OpenAI",
+      "title": "Product Policy, Biosecurity Policy Manager",
+      "location": "San Francisco (Remote)",
+      "url": "https://jobs.ashbyhq.com/openai/8b1f58e8-2922-4d55-bce6-04d7b4c5ec21",
+      "posted_at": "2026-06-02T16:53:10.367+00:00",
+      "region": "USA"
+    },
+    {
       "id": "amz-10437591",
       "company": "Amazon",
       "title": "Senior Product Manager Tech ES, CloudFront Product Management",
@@ -1563,6 +1626,15 @@
       "url": "https://www.uber.com/global/en/careers/list/154339/",
       "posted_at": "2026-06-01T14:37:00.000Z",
       "region": "USA"
+    },
+    {
+      "id": "lever-mistral-5719bb00-13d0-4bac-ad9d-ad974f84f959",
+      "company": "Mistral",
+      "title": "Product Monetisation & Pricing Lead",
+      "location": "Paris",
+      "url": "https://jobs.lever.co/mistral/5719bb00-13d0-4bac-ad9d-ad974f84f959",
+      "posted_at": "2026-06-01T02:27:25.472Z",
+      "region": "EMEA"
     },
     {
       "id": "amz-10436125",
@@ -1727,6 +1799,15 @@
       "region": "USA"
     },
     {
+      "id": "amz-10432683",
+      "company": "Amazon",
+      "title": "Sr PM, Deposit Return Schemes & Compliance - EU Grocery - Fixed Term Contract ",
+      "location": "Munich, Bavaria, DEU",
+      "url": "https://www.amazon.jobs/en/jobs/10432683/sr-pm-deposit-return-schemes-compliance-eu-grocery-fixed-term-contract",
+      "posted_at": "May 28, 2026",
+      "region": "EMEA"
+    },
+    {
       "id": "amz-10433267",
       "company": "Amazon",
       "title": "NPI Product Manager Technical – Manufacturing, Amazon Robotics",
@@ -1768,15 +1849,6 @@
       "title": "Sr. Product Manager - Tech, Worldwide Grocery Stores (WWGS) - Location, Strategy & Analytics",
       "location": "Chicago, Illinois, USA",
       "url": "https://www.amazon.jobs/en/jobs/10431821/sr-product-manager-tech-worldwide-grocery-stores-wwgs-location-strategy-analytics",
-      "posted_at": "May 27, 2026",
-      "region": "USA"
-    },
-    {
-      "id": "amz-10431054",
-      "company": "Amazon",
-      "title": "Senior Product Manager - Tech, Amazon Selection Catalog Systems, Amazon Selection Catalog Systems ",
-      "location": "Sunnyvale, California, USA",
-      "url": "https://www.amazon.jobs/en/jobs/10431054/senior-product-manager-tech-amazon-selection-catalog-systems-amazon-selection-catalog-systems",
       "posted_at": "May 27, 2026",
       "region": "USA"
     },
@@ -1885,6 +1957,15 @@
       "title": "Senior Product Manager, Tech, Amazon Connect",
       "location": "New York, New York, USA",
       "url": "https://www.amazon.jobs/en/jobs/10430744/senior-product-manager-tech-amazon-connect",
+      "posted_at": "May 26, 2026",
+      "region": "USA"
+    },
+    {
+      "id": "amz-10430380",
+      "company": "Amazon",
+      "title": "Product Safety Compliance Manager, Amazon Private Brands, Amazon Private Brands, Product Safety and Compliance",
+      "location": "Seattle, Washington, USA",
+      "url": "https://www.amazon.jobs/en/jobs/10430380/product-safety-compliance-manager-amazon-private-brands-amazon-private-brands-product-safety-and-compliance",
       "posted_at": "May 26, 2026",
       "region": "USA"
     },
@@ -2366,6 +2447,15 @@
       "region": "USA"
     },
     {
+      "id": "uber-153784",
+      "company": "Uber",
+      "title": "Product Data Scientist, Payments",
+      "location": "San Francisco, United States; Sunnyvale, United States",
+      "url": "https://www.uber.com/global/en/careers/list/153784/",
+      "posted_at": "2026-05-11T22:48:00.000Z",
+      "region": "USA"
+    },
+    {
       "id": "amz-10416424",
       "company": "Amazon",
       "title": "Product Manager, Payments and Retail Expansion",
@@ -2651,6 +2741,15 @@
       "location": "San Francisco (Remote)",
       "url": "https://jobs.ashbyhq.com/openai/0f4da2b4-df8a-4560-809d-d0a6ac1ad9bc",
       "posted_at": "2026-05-04T16:56:31.623+00:00",
+      "region": "USA"
+    },
+    {
+      "id": "ashby-openai-a81ffef7-195e-4be7-b30b-e293a347533e",
+      "company": "OpenAI",
+      "title": "Product Policy, Cyber Policy Manager",
+      "location": "San Francisco (Remote)",
+      "url": "https://jobs.ashbyhq.com/openai/a81ffef7-195e-4be7-b30b-e293a347533e",
+      "posted_at": "2026-05-04T16:39:45.010+00:00",
       "region": "USA"
     },
     {
