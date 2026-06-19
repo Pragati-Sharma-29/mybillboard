@@ -6,6 +6,10 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
+    paths-ignore:
+      - 'public/jobs.json'  # the auto-commit below pushes this file;
+                            # ignoring it prevents the workflow from
+                            # self-triggering in a loop.
 
 permissions:
   contents: write
@@ -47,7 +51,7 @@ jobs:
           SITE_URL: ${{ secrets.SITE_URL }}
 
       - name: Commit refreshed jobs.json
-        if: github.ref == 'refs/heads/main' && github.event_name != 'push'
+        if: github.ref == 'refs/heads/main'
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

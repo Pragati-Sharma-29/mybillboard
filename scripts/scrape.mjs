@@ -763,8 +763,14 @@ async function safe(name, factory) {
 }
 
 const SOURCES = [
-  ['Google',     () => google()],
-  ['Microsoft',  () => microsoft()],
+  ['Google',     () => firstNonEmpty([
+                     () => google(),
+                     () => scrapeGenericPage('https://www.google.com/about/careers/applications/jobs/results/?q=%22product+manager%22&sort_by=date', 'Google'),
+                   ])],
+  ['Microsoft',  () => firstNonEmpty([
+                     () => microsoft(),
+                     () => scrapeGenericPage('https://jobs.careers.microsoft.com/global/en/search?q=Product%20Manager&l=en_us&pgSz=20&o=Recent', 'Microsoft'),
+                   ])],
   ['Meta',       () => meta()],
   ['Uber',       () => uber()],
   ['Canva',      () => firstNonEmpty([
