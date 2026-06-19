@@ -1030,14 +1030,17 @@ async function main() {
     keptBySource[j.company] = (keptBySource[j.company] || 0) + 1;
   }
 
-  // Diagnostic: if a source returned raw jobs but none survived filtering,
-  // print the first 8 titles so we can see why on the next refresh.
+  // Diagnostic: if a source returned >=3 raw jobs but kept very few
+  // (<= 10% of raw, or 0), print first 10 titles so we can tune the
+  // filter without guessing.
   for (const [name, sourceJobs] of perSource) {
-    if (sourceJobs.length >= 5 && !keptBySource[name] && !keptBySource[sourceJobs[0]?.company]) {
-      console.log(`! ${name}: ${sourceJobs.length} raw but 0 kept. Sample titles:`);
-      for (const s of sourceJobs.slice(0, 8)) {
-        console.log(`   • "${s.title}" — ${s.location || '?'}`);
-      }
+    if (sourceJobs.length < 3) continue;
+    const company = sourceJobs[0]?.company || name;
+    const kept = keptBySource[company] || keptBySource[name] || 0;
+    if (kept * 10 >= sourceJobs.length) continue; // healthy keep rate
+    console.log(`! ${name}: ${sourceJobs.length} raw, only ${kept} kept. Sample titles:`);
+    for (const s of sourceJobs.slice(0, 10)) {
+      console.log(`   • "${s.title}" — ${s.location || '?'}`);
     }
   }
 
