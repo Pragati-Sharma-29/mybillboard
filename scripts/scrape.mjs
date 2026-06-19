@@ -68,14 +68,27 @@ function classifyRegion(location) {
 function isPMTitle(title) {
   if (!title) return false;
   const t = title.toLowerCase();
+  // Exclusions — things that contain "product" or "manager" but aren't PM roles.
   if (
-    /program manager|project manager|product marketing|engineering manager|partner manager|portfolio manager|product designer|product analyst|product engineer|product specialist|product owner|product support|product operations manager|technical product manager,? assoc(iate)?|associate product marketing/.test(
+    /program manager|project manager|product marketing|engineering manager|partner manager|portfolio manager|product designer|product analyst|product engineer|product specialist|product support|product operations manager|associate product marketing|chef de projet|product researcher|product copywriter/.test(
       t,
     )
   )
     return false;
-  return /\bproduct manager\b|\bhead of product\b|\bdirector,? product\b|\bdirector of product\b|\bvp,? product\b|\bvp of product\b|\bchief product\b|\bproduct lead\b|\bsr\.? product manager\b|\bgroup product manager\b|\bstaff product manager\b|\bprincipal product manager\b/.test(
-    t,
+  // Inclusions — broad PM-family titles including non-senior roles and
+  // alt phrasings ("Product, Le Chat", "Lead, Product", "Head Product").
+  return (
+    /\bproduct\s+manager(s|ment)?\b/.test(t) ||
+    /\bproduct\s+owner\b/.test(t) ||                  // some cos use this for PM
+    /\bhead[, ]+product\b/.test(t) ||
+    /\bhead of product\b/.test(t) ||
+    /\b(director|lead|vp|svp|gm|chief)[, ]+(of\s+)?product\b/.test(t) ||
+    /\bchief product\b/.test(t) ||
+    /\bproduct lead\b/.test(t) ||
+    /\bvp,?\s*product\b/.test(t) ||
+    /^product[\s,—-]/.test(t) ||                      // "Product, Le Chat" (Mistral-style)
+    /^pm[\s,—-]/.test(t) ||                            // "PM — Foo"
+    /\bsr\.?\s*pm\b/.test(t)
   );
 }
 
@@ -409,27 +422,34 @@ async function snowflake() {
     }
   }
 
-  // Phenom widgets API as a third attempt — best-effort, may 404.
-  try {
-    const data = await jget(
-      'https://careers.snowflake.com/widgets/jobs/?keyword=Product&pageSize=100',
-    );
-    const list = data?.jobs || data?.refNum || data?.content || [];
+  // Phenom widgets / search-results JSON APIs as additional attempts.
+  // Phenom-powered sites typically expose at least one of these paths;
+  // the response shape uses { jobs: [{ title, location, jobId, ...}] }.
+  for (const phenomUrl of [
+    'https://careers.snowflake.com/widgets/jobs/?keyword=Product&pageSize=100',
+    'https://careers.snowflake.com/api/jobs?keyword=Product&pageSize=100',
+    'https://careers.snowflake.com/services/jobsearch?keyword=Product&size=100',
+  ]) {
+    let data;
+    try {
+      data = await jget(phenomUrl);
+    } catch {
+      continue;
+    }
+    const list = data?.jobs || data?.refNum || data?.content || data?.eagerLoadRefineSearch?.data?.jobs || [];
     for (const j of Array.isArray(list) ? list : []) {
       const t = j.title || j.jobTitle;
-      const u = j.url || j.applyUrl || (j.id && `https://careers.snowflake.com/us/en/job/${j.id}`);
+      const u = j.url || j.applyUrl || (j.jobId && `https://careers.snowflake.com/us/en/job/${j.jobId}`) || (j.id && `https://careers.snowflake.com/us/en/job/${j.id}`);
       if (!t || !u) continue;
       out.set(u, {
-        id: `snowflake-w-${j.id || u}`,
+        id: `snowflake-w-${j.jobId || j.id || u}`,
         company: 'Snowflake',
         title: t,
-        location: j.location || j.city || '',
+        location: j.location || j.city || j.locations?.[0] || '',
         url: u,
         posted_at: j.postedDate || j.updatedAt || null,
       });
     }
-  } catch {
-    // ignore
   }
 
   return [...out.values()];
@@ -765,11 +785,13 @@ async function safe(name, factory) {
 const SOURCES = [
   ['Google',     () => firstNonEmpty([
                      () => google(),
+                     () => scrapeGenericPage('https://careers.google.com/jobs/results/?q=%22product+manager%22&sort_by=date', 'Google'),
                      () => scrapeGenericPage('https://www.google.com/about/careers/applications/jobs/results/?q=%22product+manager%22&sort_by=date', 'Google'),
                    ])],
   ['Microsoft',  () => firstNonEmpty([
                      () => microsoft(),
-                     () => scrapeGenericPage('https://jobs.careers.microsoft.com/global/en/search?q=Product%20Manager&l=en_us&pgSz=20&o=Recent', 'Microsoft'),
+                     () => scrapeGenericPage('https://jobs.careers.microsoft.com/global/en/search?q=Product+Manager&pgSz=50&o=Recent', 'Microsoft'),
+                     () => scrapeGenericPage('https://careers.microsoft.com/v2/global/en/search.html?keywords=product%20manager', 'Microsoft'),
                    ])],
   ['Meta',       () => meta()],
   ['Uber',       () => uber()],
@@ -987,10 +1009,14 @@ async function main() {
   if (manual.length > 0) {
     console.log(`Loaded ${manual.length} manual source(s) from sources.json`);
   }
-  const raw = (await Promise.all(allSources.map(([n, fn]) => safe(n, fn)))).flat();
+  const perSource = await Promise.all(
+    allSources.map(async ([n, fn]) => [n, await safe(n, fn)]),
+  );
+  const raw = perSource.flatMap(([, jobs]) => jobs);
 
   const seen = new Set();
   const jobs = [];
+  const keptBySource = {};
   let droppedAge = 0, droppedRegion = 0, droppedTitle = 0;
   for (const j of raw) {
     if (!j.title || !j.url) continue;
@@ -1001,6 +1027,18 @@ async function main() {
     if (seen.has(j.url)) continue;
     seen.add(j.url);
     jobs.push({ ...j, region });
+    keptBySource[j.company] = (keptBySource[j.company] || 0) + 1;
+  }
+
+  // Diagnostic: if a source returned raw jobs but none survived filtering,
+  // print the first 8 titles so we can see why on the next refresh.
+  for (const [name, sourceJobs] of perSource) {
+    if (sourceJobs.length >= 5 && !keptBySource[name] && !keptBySource[sourceJobs[0]?.company]) {
+      console.log(`! ${name}: ${sourceJobs.length} raw but 0 kept. Sample titles:`);
+      for (const s of sourceJobs.slice(0, 8)) {
+        console.log(`   • "${s.title}" — ${s.location || '?'}`);
+      }
+    }
   }
 
   jobs.sort((a, b) => new Date(b.posted_at || 0) - new Date(a.posted_at || 0));
